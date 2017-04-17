@@ -1,5 +1,6 @@
 module ApplicationHelper
-  def full_title(page_title = '', base_title)
-    page_title.empty? ? base_title : "#{page_title} | #{base_title}"
+  def title_prefix(page_title = '')
+    # we cannot use string interpolation because #provide makes escaping
+    page_title.empty? ? '' : page_title + ' | '
   end
 end

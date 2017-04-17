@@ -15,10 +15,10 @@ textarea {
 
 .center {
   text-align: center;
-}
 
-.center h1 {
-  margin-bottom: 10px;
+  h1 {
+    margin-bottom: 10px;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -55,14 +55,15 @@ p {
   color: #fff;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 16px;
+  padding-top: 9px;
   font-weight: bold;
+
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
 }
 
-#logo:hover {
-  color: #fff;
-  text-decoration: none;
-}
 
 /* footer */
 
@@ -71,27 +72,27 @@ footer {
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #777;
-}
 
-footer a {
-  color: #555;
-}
+  small {
+    float: left;
+  }
 
-footer a:hover {
-  color: #222;
-}
+  a {
+    color: #555;
 
-footer small {
-  float: left;
-}
+    &:hover {
+      color: #222;
+    }
+  }
 
-footer ul {
-  float: right;
-  list-style: none;
-  margin-top: 0;
-}
+  ul {
+    float: right;
+    list-style: none;
+    margin-top: 0;
 
-footer ul li {
-  float: left;
-  margin-left: 15px;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
 }

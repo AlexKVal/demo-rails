@@ -67,12 +67,9 @@ class UserTest < ActiveSupport::TestCase
 
   test "email addresses should be downcased" do
     MIXED_CASE_EMAIL = 'NotDowncased@FOO.bar'
-    DOWNCASED_EMAIL = 'notdowncased@foo.bar'
 
-    user = User.new name: 'any', email: MIXED_CASE_EMAIL
-    assert_equal user.email, MIXED_CASE_EMAIL
-
-    user.save
-    assert_equal user.email, DOWNCASED_EMAIL
+    @user.email = MIXED_CASE_EMAIL
+    @user.save
+    assert_equal @user.reload.email, MIXED_CASE_EMAIL.downcase
   end
 end

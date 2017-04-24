@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   setup do
-    @user = User.new name: "Vasya", email: "some@example.com"
+    @user = User.new name: "Vasya", email: "some@example.com", password: "foobar"
   end
 
   test "user is valid" do
@@ -70,6 +70,6 @@ class UserTest < ActiveSupport::TestCase
 
     @user.email = MIXED_CASE_EMAIL
     @user.save
-    assert_equal @user.reload.email, MIXED_CASE_EMAIL.downcase
+    assert_equal MIXED_CASE_EMAIL.downcase, @user.reload.email
   end
 end

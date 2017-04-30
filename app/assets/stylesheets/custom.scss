@@ -123,6 +123,15 @@ input, textarea, select, .uneditable-input {
   @include box_sizing;
 }
 
-input {
-  // height: auto !important;
+.field_with_errors {
+  label {
+    color: red;
+  }
+  input, textarea, select, .uneditable-input {
+    border: 1px solid red;
+  }
+}
+
+.error_explanation {
+  color: red;
 }

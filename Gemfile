@@ -36,10 +36,10 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 gem 'bootstrap-sass', '3.3.6'
-
 gem 'local_time'
 
 group :development, :test do
+  gem "awesome_print" # pretty print ruby objects
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

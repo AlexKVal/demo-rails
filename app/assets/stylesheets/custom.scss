@@ -124,14 +124,12 @@ input, textarea, select, .uneditable-input {
 }
 
 .field_with_errors {
-  label {
-    color: red;
-  }
-  input, textarea, select, .uneditable-input {
-    border: 1px solid red;
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
   }
 }
 
-.error_explanation {
+#error_explanation {
   color: red;
 }

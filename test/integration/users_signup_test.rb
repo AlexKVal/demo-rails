@@ -19,4 +19,26 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_template 'users/new'
     assert_select '#error_explanation .alert', 'The form contains 3 errors.'
   end
+
+  test "when the submitted information is correct" do
+    get signup_path
+    assert_response :success
+
+    assert_difference 'User.count', +1 do
+      post signup_path, params: {
+        user: {
+          name: "John Dow",
+          email: "john@example.com",
+          password: "foobar",
+          password_confirmation: "foobar"
+        }
+      }
+    end
+
+    assert_response :redirect
+    follow_redirect!
+    assert_response :success
+    assert_template 'users/show'
+    assert_select '.panel-title', 'John Dow'
+  end
 end

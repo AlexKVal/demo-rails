@@ -15,7 +15,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
       }
     end
 
-    assert_response :success
     assert_template 'users/new'
     assert_select '#error_explanation .alert', 'The form contains 3 errors.'
   end
@@ -37,8 +36,11 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 
     assert_response :redirect
     follow_redirect!
-    assert_response :success
     assert_template 'users/show'
+
+    # assert_select '.alert-success', 'Welcome to the Sample App!' # <= brittle
+    assert_not flash.empty?
+
     assert_select '.panel-title', 'John Dow'
   end
 end

@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   post 'signup', to: 'users#create'
   patch 'signup', to: 'users#update'
 
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+
   resources :microposts
   resources :users
 

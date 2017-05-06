@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, flash: { success: "Welcome to the Sample App!" } }
+        format.html { redirect_to @user, success: "Welcome to the Sample App!" }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }

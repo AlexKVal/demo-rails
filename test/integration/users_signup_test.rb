@@ -42,10 +42,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_not flash.empty?
 
     assert_select '.panel-title', 'John Dow'
-
-    # test that the user is logged in
-    assert_select "a[href=?]", login_path, count: 0
-    assert_select "a[href=?]", logout_path
-    assert_select "a[href=?]", user_path(User.last)
+    assert is_logged_in?
   end
 end

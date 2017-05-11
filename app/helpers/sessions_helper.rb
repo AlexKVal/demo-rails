@@ -19,6 +19,7 @@ module SessionsHelper
   end
 
   def log_out
+    return unless logged_in?
     forget(current_user)
     session.delete(:user_id)
     @current_user = nil

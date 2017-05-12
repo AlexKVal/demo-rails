@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   get 'signup', to: 'users#new'
   post 'signup', to: 'users#create'
-  patch 'signup', to: 'users#update'
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'

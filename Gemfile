@@ -38,6 +38,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '3.3.6'
 gem 'local_time'
 
+gem 'faker', '1.6.6' # we want it in production too
+
 group :development, :test do
   gem "awesome_print" # pretty print ruby objects
   # Use sqlite3 as the database for Active Record

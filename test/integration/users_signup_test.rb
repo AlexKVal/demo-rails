@@ -16,7 +16,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
 
     assert_template 'users/new'
-    assert_select '#error_explanation .alert', 'The form contains 3 errors.'
+    assert_select '#error_explanation .alert', 'The form contains 2 errors.'
   end
 
   test "when the submitted information is correct" do

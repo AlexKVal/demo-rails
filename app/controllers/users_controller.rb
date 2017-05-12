@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:edit, :update]
 
   # GET /users
   # GET /users.json
@@ -29,7 +30,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         log_in @user
-        format.html { redirect_to @user, success: "Welcome to the Sample App!" }
+        format.html { redirect_to @user, success: "Welcome!" }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -71,5 +72,12 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
+
+    # Confirms a logged-in user.
+    def logged_in_user
+      unless logged_in?
+        redirect_to login_url, danger: 'Please log in.'
+      end
     end
 end

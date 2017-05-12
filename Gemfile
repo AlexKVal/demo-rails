@@ -40,6 +40,9 @@ gem 'local_time'
 
 gem 'faker', '1.6.6' # we want it in production too
 
+gem 'will_paginate', '3.1.1'
+gem 'bootstrap-will_paginate', '1.0.0'
+
 group :development, :test do
   gem "awesome_print" # pretty print ruby objects
   # Use sqlite3 as the database for Active Record

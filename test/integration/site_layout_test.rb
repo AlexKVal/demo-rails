@@ -14,4 +14,14 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     get root_path
     assert_select "a[href=?]", signup_path, "Sign up now!"
   end
+
+  test "when logged in home page contains link to users#index page" do
+    get root_path
+    assert_select "a[href=?]", users_path, count: 0
+
+    user = users(:michael)
+    log_in_as(user)
+    get root_path
+    assert_select "a[href=?]", users_path, count: 1
+  end
 end

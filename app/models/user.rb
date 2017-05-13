@@ -44,6 +44,17 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
 
+  # activates an account
+  def activate
+    return if activated?
+    update_columns(activated: true, activated_at: Time.zone.now, updated_at: Time.zone.now)
+  end
+
+  # sends activation email
+  def send_activation_email
+    UserMailer.account_activation(self).deliver_now unless activated?
+  end
+
   private
 
     def create_activation_digest

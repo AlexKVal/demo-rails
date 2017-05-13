@@ -7,12 +7,13 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.page(params[:page])
+    @users = User.where(activated: true).page(params[:page])
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    redirect_to root_url unless @user.activated?
   end
 
   # GET /users/new
@@ -28,7 +29,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      UserMailer.account_activation(@user).deliver_now
+      @user.send_activation_email
       redirect_to root_url, info: "Please check your email to activate your account."
     else
       render :new

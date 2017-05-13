@@ -24,20 +24,14 @@ class UsersController < ApplicationController
   def edit
   end
 
-  # POST /users
-  # POST /users.json
   def create
     @user = User.new(user_params)
 
-    respond_to do |format|
-      if @user.save
-        log_in @user
-        format.html { redirect_to @user, success: "Welcome!" }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.save
+      UserMailer.account_activation(@user).deliver_now
+      redirect_to root_url, info: "Please check your email to activate your account."
+    else
+      render :new
     end
   end
 

@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  add_flash_types :success, :danger, :info
+  add_flash_types :success, :danger, :info, :warning
 
   include SessionsHelper
 end

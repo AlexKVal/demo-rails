@@ -3,33 +3,44 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h3 class="panel-title">
-      <%= gravatar_for @user %>
-      <%= @user.name %>
+      <a href="http://gravatar.com/emails" target="_blank" rel="noopener noreferrer">
+        <%= gravatar_for(@user) %>
+      </a>
+      <%= link_to @user.name, edit_user_path(@user) %>
     </h3>
   </div>
   <div class="panel-body">
     <div class="row">
-      <div class="col-sm-1 col-sm-offset-1 col-md-offset-0"><strong class="pull-right">Name:</strong></div>
-      <div class="col-sm-10"><%= @user.name %></div>
+      <div class="col-xs-3 col-sm-2 col-lg-1"><strong class="pull-right">Name:</strong></div>
+      <div class="col-xs-9"><%= @user.name %></div>
     </div>
 
     <div class="row">
-      <div class="col-sm-1 col-sm-offset-1 col-md-offset-0"><strong class="pull-right">Email:</strong></div>
-      <div class="col-sm-10"><%= @user.email %></div>
+      <div class="col-xs-3 col-sm-2 col-lg-1"><strong class="pull-right">Email:</strong></div>
+      <div class="col-xs-9"><%= @user.email %></div>
     </div>
 
     <div class="row">
-      <div class="col-sm-1 col-sm-offset-1 col-md-offset-0"><strong class="pull-right">Created:</strong></div>
-      <div class="col-sm-10"><%= local_time @user.created_at %></div>
+      <div class="col-xs-3 col-sm-2 col-lg-1"><strong class="pull-right">Created:</strong></div>
+      <div class="col-xs-9"><%= local_time @user.created_at %></div>
     </div>
 
     <div class="row">
-      <div class="col-sm-1 col-sm-offset-1 col-md-offset-0"><strong class="pull-right">Updated:</strong></div>
-      <div class="col-sm-10"><%= local_time @user.updated_at %></div>
+      <div class="col-xs-3 col-sm-2 col-lg-1"><strong class="pull-right">Updated:</strong></div>
+      <div class="col-xs-9"><%= local_time @user.updated_at %></div>
     </div>
   </div>
-  <div class="panel-footer">
-    <%= link_to 'Edit', edit_user_path(@user) %> |
-    <%= link_to 'Back', users_path %>
-  </div>
+
+  <%# microposts %>
+  <% if @user.microposts.any? %>
+    <div class="panel-heading">
+      <h3 class="panel-title">Microposts (<%= @user.microposts.count %>)</h3>
+    </div>
+    <ul class="list-group microposts">
+      <%= render @microposts %>
+    </ul>
+    <div class="panel-footer">
+      <%= will_paginate @microposts %>
+    </div>
+  <% end %>
 </div>

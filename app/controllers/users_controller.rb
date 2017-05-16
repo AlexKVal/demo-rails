@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @microposts = @user.microposts.page(params[:page])
     redirect_to root_url unless @user.activated?
   end
 

@@ -166,3 +166,41 @@ input, textarea, select, .uneditable-input {
   border: 2px solid white;
   margin-right: 10px;
 }
+
+// microposts
+.microposts {
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 60px;
+  }
+  .gravatar {
+    float: left;
+  }
+}
+.panel-footer .pagination {
+  margin: 0;
+}
+
+// additional styles
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
+  }
+}

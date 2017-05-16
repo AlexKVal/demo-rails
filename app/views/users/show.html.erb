@@ -34,7 +34,7 @@
   <%# microposts %>
   <% if @user.microposts.any? %>
     <div class="panel-heading">
-      <h3 class="panel-title">Microposts (<%= @user.microposts.count %>)</h3>
+      <h3 class="panel-title">Microposts <span class="badge"><%= @user.microposts.count %></span></h3>
     </div>
     <ul class="list-group microposts">
       <%= render @microposts %>

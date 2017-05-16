@@ -64,14 +64,6 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 
-    # Confirms a logged-in user.
-    def logged_in_user
-      unless logged_in?
-        store_location
-        redirect_to login_url, danger: 'Please log in.'
-      end
-    end
-
     # confirms an admin user
     def admin_user
       redirect_to(root_url) unless current_user.admin?

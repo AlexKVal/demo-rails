@@ -1,5 +1,6 @@
 class MicropostsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
+  before_action :correct_user,   only: [:destroy]
 
   # a quick and dirty hack for showing paginated microposts
   # TODO: DRY it with StaticPagesController#home
@@ -25,11 +26,18 @@ class MicropostsController < ApplicationController
 
   # DELETE /microposts/1
   def destroy
+    @micropost.destroy
+    redirect_back fallback_location: root_url, success: "Micropost deleted"
   end
 
   private
 
     def micropost_params
       params.require(:micropost).permit(:content)
+    end
+
+    def correct_user
+      @micropost = current_user.microposts.find(params[:id])
+      redirect_to root_url if @micropost.nil?
     end
 end

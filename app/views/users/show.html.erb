@@ -39,8 +39,6 @@
     <ul class="list-group microposts">
       <%= render @microposts %>
     </ul>
-    <div class="panel-footer">
-      <%= will_paginate @microposts %>
-    </div>
+    <%= will_paginate @microposts, class: 'panel-footer' %>
   <% end %>
 </div>

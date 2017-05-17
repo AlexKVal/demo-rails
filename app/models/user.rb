@@ -29,6 +29,11 @@ class User < ApplicationRecord
     end
   end
 
+  # defines a proto-feed
+  def feed
+    Micropost.where("user_id = ?", id)
+  end
+
   def remember
     self.remember_token = User.new_token
     update_attribute(:remember_digest, User.digest(remember_token))

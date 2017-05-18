@@ -1,10 +1,13 @@
-// https://www.abeautifulsite.net/whipping-file-inputs-into-shape-with-bootstrap-3
+$(function () {
 
-$(function() {
+  $('#micropost_picture').on('change', function() {
+    var label = $(this).val().split('\\').pop()
+    $('#file_name').val(label)
 
-  $(document).on('change', ':file', function() {
-    var label = $(this).val().replace(/\\/g, '/').replace(/.*\//, '')
-    $(this).parents('.input-group').find(':text').val(label)
+    var fileSizeInMB = this.files[0].size / 1024 / 1024
+    if (fileSizeInMB > 5) {
+      alert('Maximum file size is 5MB. Please choose a smaller file.')
+    }
   })
 
 })

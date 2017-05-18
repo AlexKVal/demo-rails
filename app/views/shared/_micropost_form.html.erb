@@ -7,7 +7,13 @@
 
   <%= f.submit "Post", class: "btn btn-primary" %>
 
-  <span class="picture">
-    <%= f.file_field :picture %>
-  </span>
+  <h4>Add a picture</h4>
+  <div class="input-group">
+    <label class="input-group-btn">
+      <span class="btn btn-info">
+        Browse&hellip; <%= f.file_field :picture, accept: 'image/*', style: "display: none;" %>
+      </span>
+    </label>
+    <input type="text" class="form-control" readonly>
+  </div>
 <% end %>

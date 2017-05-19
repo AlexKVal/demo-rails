@@ -45,7 +45,7 @@ gem 'bootstrap-will_paginate', '1.0.0'
 
 gem 'mailjet'
 
-gem 'fog'
+gem 'fog', group: :production
 gem 'carrierwave', '~> 1.1'
 gem 'mini_magick', '~> 4.7'
 

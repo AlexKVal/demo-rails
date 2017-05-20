@@ -18,4 +18,12 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
       assert_match micropost.content, response.body
     end
   end
+
+  test "current user stats should be shown on the root page" do
+    log_in_as(@user)
+    get root_path
+    assert_select '.panel-title', text: @user.name
+    assert_select '#following', "2" # text: @user.following.count.to_s
+    assert_select '#followers', "1" # text: @user.followers.count.to_s
+  end
 end

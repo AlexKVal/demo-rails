@@ -1,0 +1,11 @@
+michaelToArcher:
+  follower: michael
+  followed: archer
+
+michaelToLana:
+  follower: michael
+  followed: lana
+
+archerToMichael:
+  follower: archer
+  followed: michael

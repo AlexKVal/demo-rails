@@ -7,8 +7,16 @@
       <%= link_to current_user.name, current_user %>
     </h3>
   </div>
-  <div class="panel-body">
-    <span><%= link_to "view my profile", current_user %></span>
-    <span class="badge"><%= pluralize(current_user.microposts.count, "micropost") %></span>
+  <div class="panel-body text-center">
+    <div class="row">
+      <div class="col-xs-6">
+        <span><%= link_to "view my profile", current_user %></span>
+      </div>
+      <div class="col-xs-6">
+        <span class="label label-info">
+          <%= pluralize(current_user.microposts.count, "micropost") %>
+        </span>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,11 +1,15 @@
-michaelToArcher:
-  follower: michael
-  followed: archer
-
-michaelToLana:
+one:
   follower: michael
   followed: lana
 
-archerToMichael:
+two:
+  follower: michael
+  followed: malory
+
+three:
+  follower: lana
+  followed: michael
+
+three:
   follower: archer
   followed: michael

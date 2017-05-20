@@ -1,23 +1,19 @@
 <% @user ||= current_user %>
-<div class="panel panel-default">
-  <div class="panel-body text-center">
-    <div class="row">
-      <div class="col-xs-6">
-        <a href="<%= following_user_path(@user) %>">
-          <strong id="following" class="stat badge">
-            <%= @user.following.count %>
-          </strong>
-          following
-        </a>
-      </div>
-      <div class="col-xs-6">
-        <a href="<%= followers_user_path(@user) %>">
-          <strong id="followers" class="stat badge">
-            <%= @user.followers.count %>
-          </strong>
-          followers
-        </a>
-      </div>
-    </div>
+<div class="row">
+  <div class="col-xs-6">
+    <a href="<%= following_user_path(@user) %>">
+      <span id="following" class="stat badge">
+        <%= @user.following.count %>
+      </span>
+      following
+    </a>
+  </div>
+  <div class="col-xs-6">
+    <a href="<%= followers_user_path(@user) %>">
+      <span id="followers" class="stat badge">
+        <%= followers_count = @user.followers.count %>
+      </span>
+      <%= "followers".pluralize(followers_count) %>
+    </a>
   </div>
 </div>

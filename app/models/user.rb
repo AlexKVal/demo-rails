@@ -40,8 +40,8 @@ class User < ApplicationRecord
 
   # defines a proto-feed
   def feed
-    following_ids = "SELECT followed_id FROM relationships WHERE follower_id = :user_id"
-    Micropost.where("user_id IN (#{following_ids}) OR user_id = :user_id", user_id: id)
+    following_ids = Relationship.select(:followed_id).where("follower_id = ?", id).to_sql
+    Micropost.includes(:user).where("user_id IN (#{following_ids}) OR user_id = :user_id", user_id: id)
   end
 
   def remember

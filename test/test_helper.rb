@@ -4,8 +4,6 @@ require 'rails/test_help'
 require "minitest/reporters"
 Minitest::Reporters.use!
 
-ENV['MJ_ADDRESS'] = 'sample@email.com'
-
 # do not resize test images
 CarrierWave.configure do |config|
   config.enable_processing = false

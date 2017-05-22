@@ -14,7 +14,7 @@
         <span><%= link_to "view my profile", @user %></span>
       </div>
       <div class="col-xs-6">
-        <span class="label label-info">
+        <span class="label label-info microposts-count">
           <%= pluralize(@user.microposts.count, "micropost") %>
         </span>
       </div>

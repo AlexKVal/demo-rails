@@ -190,7 +190,7 @@ input, textarea, select, .uneditable-input {
   margin: 0;
 }
 
-// additional styles
+// micropos text field
 aside {
   textarea {
     height: 100px;
@@ -203,4 +203,8 @@ span.picture {
   input {
     border: 0;
   }
+}
+
+.microposts-count {
+  font-size: 100%;
 }

@@ -49,10 +49,10 @@ gem 'fog', group: :production
 gem 'carrierwave', '~> 1.1'
 gem 'mini_magick', '~> 4.7'
 
+gem 'pg', '0.18.4'
+
 group :development, :test do
   gem "awesome_print" # pretty print ruby objects
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 
@@ -76,9 +76,6 @@ group :test do
   gem 'guard-minitest'
 end
 
-group :production do
-  gem 'pg', '0.18.4'
-end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

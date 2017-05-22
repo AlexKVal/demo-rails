@@ -45,11 +45,16 @@ gem 'bootstrap-will_paginate', '1.0.0'
 
 gem 'mailjet'
 
-gem 'fog', group: :production
+# this should be before carrierwave
+group :development do
+  gem 'fog-google', group: :production
+  gem 'google-api-client', '~> 0.8.6', group: :production
+end
+
 gem 'carrierwave', '~> 1.1'
 gem 'mini_magick', '~> 4.7'
 
-gem 'pg', '0.18.4'
+gem 'pg', '0.18.4' # use postgres in all three environments
 
 group :development, :test do
   gem "awesome_print" # pretty print ruby objects

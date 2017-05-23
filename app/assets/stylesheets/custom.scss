@@ -51,18 +51,13 @@ p {
   line-height: 1.7em;
 }
 
-
 #logo {
-  float: left;
-  margin-right: 10px;
+  color: #1da1f2; // twitter color
+}
+.navbar-brand {
   font-size: 1.7em;
   letter-spacing: -1px;
-  padding-top: 9px;
   font-weight: bold;
-
-  &:hover {
-    text-decoration: none;
-  }
 }
 
 

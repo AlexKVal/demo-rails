@@ -158,8 +158,6 @@ input, textarea, select, .uneditable-input {
 // microposts
 .microposts {
   .content {
-    display: block;
-    margin-left: 60px;
     img {
       display: block;
       padding: 5px 0;
@@ -167,8 +165,6 @@ input, textarea, select, .uneditable-input {
   }
   .timestamp {
     color: $gray-light;
-    display: block;
-    margin-left: 60px;
   }
   .gravatar {
     float: left;
@@ -199,4 +195,9 @@ span.picture {
 
 .microposts-count {
   font-size: 100%;
+}
+
+.edit-link {
+  margin-left: .1em;
+  font-weight: normal;
 }

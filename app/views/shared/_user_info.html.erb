@@ -2,10 +2,9 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">
-      <a href="http://gravatar.com/emails" target="_blank" rel="noopener noreferrer">
-        <%= gravatar_for(@user) %>
-      </a>
+      <%= gravatar_for(@user) %>
       <%= link_to @user.name, @user %>
+      <span class='edit-link'><%= link_to "(edit)", edit_user_path(@user) %></span>
     </h3>
   </div>
   <div class="panel-body text-center">

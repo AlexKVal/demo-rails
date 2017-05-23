@@ -24,7 +24,7 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
   test "current user stats should be shown on the root page" do
     log_in_as(@user)
     get root_path
-    assert_select '.panel-title', text: @user.name
+    assert_select '.panel-title', text: /#{@user.name}/
     assert_not @user.following.empty?
     assert_not @user.followers.empty?
     assert_select '#following', "2" # text: @user.following.count.to_s

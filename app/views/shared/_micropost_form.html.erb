@@ -5,15 +5,14 @@
     <%= f.text_area :content, placeholder: "Compose new micropost..." %>
   </div>
 
-  <%= f.submit "Post", class: "btn btn-primary", name: nil %>
-
-  <h4>Add a picture</h4>
-  <div class="input-group">
+  <div class="input-group add-picture">
     <label class="input-group-btn">
       <span class="btn btn-info">
         Browse&hellip; <%= f.file_field :picture, accept: 'image/*', style: "display: none;" %>
       </span>
     </label>
-    <input id="file_name" type="text" class="form-control" readonly>
+    <input id="file_name" type="text" placeholder="Add a picture..." class="form-control" readonly>
   </div>
+
+  <%= f.submit "Post", class: "btn btn-success", name: nil %>
 <% end %>

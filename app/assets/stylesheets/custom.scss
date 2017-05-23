@@ -190,12 +190,13 @@ input, textarea, select, .uneditable-input {
   margin: 0;
 }
 
-// micropos text field
-aside {
-  textarea {
-    height: 100px;
-    margin-bottom: 5px;
-  }
+#micropost_content {
+  height: 100px;
+  margin-bottom: 5px;
+}
+
+.add-picture {
+  margin-bottom: 10px;
 }
 
 span.picture {

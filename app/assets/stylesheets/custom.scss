@@ -17,10 +17,6 @@ section {
   overflow: auto;
 }
 
-textarea {
-  resize: vertical;
-}
-
 .center {
   text-align: center;
 
@@ -60,14 +56,11 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: #fff;
-  text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
 
   &:hover {
-    color: #fff;
     text-decoration: none;
   }
 }
@@ -193,6 +186,9 @@ input, textarea, select, .uneditable-input {
 #micropost_content {
   height: 100px;
   margin-bottom: 5px;
+}
+textarea {
+  resize: vertical;
 }
 
 .add-picture {

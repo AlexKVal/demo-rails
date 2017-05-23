@@ -136,18 +136,6 @@ input, textarea, select, .uneditable-input {
   margin-left: 0;
 }
 
-// Users index
-
-.users {
-  list-style: none;
-  margin: 0;
-  li {
-    overflow: auto;
-    padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
-  }
-}
-
 .gravatar {
   border-radius: 50%;
   padding: 1px;
@@ -174,6 +162,7 @@ input, textarea, select, .uneditable-input {
   margin: 0;
 }
 
+// post form
 #micropost_content {
   height: 100px;
   margin-bottom: 5px;
@@ -181,11 +170,9 @@ input, textarea, select, .uneditable-input {
 textarea {
   resize: vertical;
 }
-
 .add-picture {
   margin-bottom: 10px;
 }
-
 span.picture {
   margin-top: 10px;
   input {

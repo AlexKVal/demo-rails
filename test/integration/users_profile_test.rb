@@ -3,6 +3,7 @@ require 'test_helper'
 class UsersProfileTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:michael)
+    @other_user = users(:archer)
   end
 
   test "profile display" do
@@ -29,5 +30,24 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     assert_not @user.followers.empty?
     assert_select '#following', "2" # text: @user.following.count.to_s
     assert_select '#followers', "1" # text: @user.followers.count.to_s
+  end
+
+  test "when is not logged-in (edit) should not be shown on a user profile" do
+    get user_path(@user)
+    assert_select '.panel-title', text: /\(edit\)/, count: 0
+    get user_path(@other_user)
+    assert_select '.panel-title', text: /\(edit\)/, count: 0
+  end
+
+  test "when looking at own user's profile (edit) should be shown" do
+    log_in_as(@user)
+    get user_path(@user)
+    assert_select '.panel-title', text: /\(edit\)/
+  end
+
+  test "when looking at another user's profile (edit) shouldn't be showed" do
+    log_in_as(@user)
+    get user_path(@other_user)
+    assert_select '.panel-title', text: /\(edit\)/, count: 0
   end
 end

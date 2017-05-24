@@ -15,7 +15,7 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     assert_not @user.followers.empty?
     assert_select '#following', "2" # text: @user.following.count.to_s
     assert_select '#followers', "1" # text: @user.followers.count.to_s
-    assert_select '.panel-title .badge', text: @user.microposts.count.to_s
+    assert_select '.panel-title .badge', text: @user.microposts_count.to_s
     assert_select '.pagination', count: 1
     @user.microposts.page(1).each do |micropost|
       assert_match micropost.content, response.body

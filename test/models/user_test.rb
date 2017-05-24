@@ -114,16 +114,19 @@ class UserTest < ActiveSupport::TestCase
     assert_not michael.feed.empty?
     # posts from followed user
     assert_not lana.microposts.empty?
+    assert_equal lana.microposts.count, lana.microposts_count
     lana.microposts.each do |post_following|
       assert michael.feed.include?(post_following)
     end
     # posts from self
     assert_not michael.microposts.empty?
+    assert_equal michael.microposts.count, michael.microposts_count
     michael.microposts.each do |post_self|
       assert michael.feed.include?(post_self)
     end
     # posts from unfollowed user
     assert_not archer.microposts.empty?
+    assert_equal archer.microposts.count, archer.microposts_count
     archer.microposts.each do |post_unfollowed|
       assert_not michael.feed.include?(post_unfollowed)
     end

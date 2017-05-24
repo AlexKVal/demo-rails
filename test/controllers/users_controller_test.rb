@@ -78,4 +78,13 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     get followers_user_path(@user)
     assert_redirected_to login_path
   end
+
+  test "should list users ordered by id" do
+    get users_path
+    users_to_show = assigns(:users)
+    users_from_db = User.order(:id)
+    assert users_from_db.first, users.first
+    assert users_from_db.second, users.second
+    assert users_from_db.third, users.third
+  end
 end

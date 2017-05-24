@@ -82,9 +82,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   test "should list users ordered by id" do
     get users_path
     users_to_show = assigns(:users)
-    users_from_db = User.order(:id)
-    assert users_from_db.first, users.first
-    assert users_from_db.second, users.second
-    assert users_from_db.third, users.third
+    users_from_db = User.ordered_by_id
+    assert users_from_db, users_to_show
   end
 end

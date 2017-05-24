@@ -25,6 +25,9 @@ class User < ApplicationRecord
 
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
+  scope :ordered_by_id, -> { order(:id) }
+  scope :activated, -> { where(activated: true) }
+
   class << self
     # returns the hash digest of the given string
     def digest(string)

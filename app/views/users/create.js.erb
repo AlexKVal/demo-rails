@@ -1,8 +1,1 @@
-var errorsHtml = `
-<li class="list-group-item list-group-item-danger">
-  <% @user.errors.full_messages.each do |message| %>
-    <%= escape_javascript(message) %><br>
-  <% end %>
-</li>
-`
-$('ul.errors').html(errorsHtml)
+$('#signup-form').html("<%= escape_javascript(render('shared/signup_form')) %>")

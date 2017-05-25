@@ -31,9 +31,9 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     assert_template 'users/create'
     assert_equal "text/javascript", response.content_type
-    assert_match "Email is invalid", response.body
-    # todo: to prevent such blemish, use Capybara for testing ajax
-    assert_match "Password can\\'t be blank", CGI.unescapeHTML(response.body)
+    unescaped_body = CGI.unescape_html(response.body)
+    assert_match "Email is invalid", unescaped_body
+    assert_match "Password can\'t be blank", unescaped_body
   end
 
   test "valid signup information with Ajax" do

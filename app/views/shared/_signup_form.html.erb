@@ -1,10 +1,22 @@
+<% @user ||= User.new %>
+
 <div class="panel panel-default text-center">
   <div class="panel-heading">
     <h3 class="panel-title text-left">New user ? <span class="text-muted">Sign up</span></h3>
   </div>
-  <ul class="list-group text-left errors"></ul>
+
+  <% if @user.errors.any? %>
+    <ul class="list-group text-left errors">
+      <li class="list-group-item list-group-item-danger">
+        <% @user.errors.full_messages.each do |message| %>
+          <%= message %><br>
+        <% end %>
+      </li>
+    </ul>
+  <% end %>
+
   <div class="panel-body">
-    <%= form_for User.new, remote: true do |f| %>
+    <%= form_for @user, remote: true do |f| %>
       <div class="form-group">
         <%= f.text_field :name, class: 'form-control', placeholder: 'Full name' %>
       </div>

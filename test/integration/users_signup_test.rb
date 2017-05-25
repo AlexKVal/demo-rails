@@ -5,7 +5,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     ActionMailer::Base.deliveries.clear
   end
 
-  test "when the submitted information is invalid" do
+  test "invalid signup information with JS-disabled browser" do
     get root_path
     assert_template 'shared/_signup_form'
     assert_no_difference 'User.count' do
@@ -19,7 +19,24 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_select '#error_explanation .alert', 'The form contains 2 errors.'
   end
 
-  test "valid signup information with account activation" do
+  test "valid signup information with Ajax" do
+    get root_path
+    assert_template 'shared/_signup_form'
+    assert_difference 'User.count', +1 do
+      post signup_path, params: { user: {
+        name: "John Dow",
+        email: "john@example.com",
+        password: "foobar"
+      } }
+    end
+    assert_redirected_to root_path
+    follow_redirect!
+    assert_not flash.empty?
+
+    assert_equal 1, ActionMailer::Base.deliveries.size
+  end
+
+  test "valid signup information with account activation and JS-disabled browser" do
     get root_path
     assert_template 'shared/_signup_form'
     assert_difference 'User.count', +1 do
@@ -32,6 +49,9 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_equal 1, ActionMailer::Base.deliveries.size
     user = assigns(:user)
     assert_not user.activated?
+    assert_redirected_to root_path
+    follow_redirect!
+    assert_not flash.empty?
     # try to log in before activation
     log_in_as(user)
     assert_not is_logged_in?

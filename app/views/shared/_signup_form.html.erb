@@ -2,6 +2,7 @@
   <div class="panel-heading">
     <h3 class="panel-title text-left">New user ? <span class="text-muted">Sign up</span></h3>
   </div>
+  <ul class="list-group text-left errors"></ul>
   <div class="panel-body">
     <%= form_for User.new, remote: true do |f| %>
       <div class="form-group">

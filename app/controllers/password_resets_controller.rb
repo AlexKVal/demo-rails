@@ -11,7 +11,7 @@ class PasswordResetsController < ApplicationController
     if @user
       @user.create_reset_digest
       @user.send_password_reset_email
-      redirect_to root_url, info: "Email sent with password reset instructions"
+      redirect_to root_path, info: "Email sent with password reset instructions"
     else
       flash.now[:danger] = "Email address not found"
       render :new
@@ -46,7 +46,7 @@ class PasswordResetsController < ApplicationController
 
     # confirms a valid user
     def valid_user
-      redirect_to root_url unless @user&.activated? && @user.authenticated?(:reset, params[:id])
+      redirect_to root_path unless @user&.activated? && @user.authenticated?(:reset, params[:id])
     end
 
     # checks expiration of reset token

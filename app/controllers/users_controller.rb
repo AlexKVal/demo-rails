@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   # GET /users/1
   def show
     @microposts = @user.microposts.page(params[:page])
-    redirect_to root_url unless @user.activated?
+    redirect_to root_path unless @user.activated?
   end
 
   # GET /users/new
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
     if @user.save
       @user.send_activation_email
-      redirect_to root_url, info: "Please check your email to activate your account."
+      redirect_to root_path, info: "Please check your email to activate your account."
     else
       render :new
     end
@@ -68,7 +68,7 @@ class UsersController < ApplicationController
 
     # Use callbacks to share common setup or constraints between actions.
     def correct_user
-      redirect_to(root_url) unless current_user?(@user)
+      redirect_to(root_path) unless current_user?(@user)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -78,6 +78,6 @@ class UsersController < ApplicationController
 
     # confirms an admin user
     def admin_user
-      redirect_to(root_url) unless current_user.admin?
+      redirect_to(root_path) unless current_user.admin?
     end
 end

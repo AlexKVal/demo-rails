@@ -33,7 +33,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     # logout
     delete logout_path
     assert_not is_logged_in?
-    assert_redirected_to root_url
+    assert_redirected_to root_path
     # simulate a user clicking logout in a a second window
     delete logout_path
     # continue in our "previous" window

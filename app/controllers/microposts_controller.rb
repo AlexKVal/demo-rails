@@ -27,7 +27,7 @@ class MicropostsController < ApplicationController
   # DELETE /microposts/1
   def destroy
     @micropost.destroy
-    redirect_back fallback_location: root_url, success: "Micropost deleted"
+    redirect_back fallback_location: root_path, success: "Micropost deleted"
   end
 
   private
@@ -38,6 +38,6 @@ class MicropostsController < ApplicationController
 
     def correct_user
       @micropost = current_user.microposts.find_by(id: params[:id])
-      redirect_to root_url if @micropost.nil?
+      redirect_to root_path if @micropost.nil?
     end
 end

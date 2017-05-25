@@ -10,7 +10,9 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_template 'shared/_login_signup'
 
     post login_path, params: { session: { email: 'invalid', password: 'invalid' } }
-    assert_template 'sessions/new'
+    assert_redirected_to root_path
+    follow_redirect!
+    assert_template 'shared/_login_signup'
     assert_not flash.empty?
 
     get root_path

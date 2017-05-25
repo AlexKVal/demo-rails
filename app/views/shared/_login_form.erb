@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-body">
-    <%= form_for :session, url: login_path do |f| %>
+    <%= form_for :session, url: login_path, remote: true do |f| %>
       <div class="form-group">
         <%= f.email_field :email, class: 'form-control',
                           placeholder: "Email",

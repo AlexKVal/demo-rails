@@ -6,7 +6,7 @@
   </div>
 
   <% if @user.errors.any? %>
-    <ul class="list-group text-left errors">
+    <ul class="list-group text-left">
       <li class="list-group-item list-group-item-danger">
         <% @user.errors.full_messages.each do |message| %>
           <%= message %><br>

@@ -123,20 +123,6 @@ footer {
   color: red;
 }
 
-.checkbox {
-  margin-top: -10px;
-  margin-bottom: 10px;
-  span {
-    margin-left: 20px;
-    font-weight: normal;
-  }
-}
-
-#session_remember_me {
-  width: auto;
-  margin-left: 0;
-}
-
 .gravatar {
   border-radius: 50%;
   padding: 1px;
@@ -188,4 +174,37 @@ span.picture {
 .edit-link {
   margin-left: .1em;
   font-weight: normal;
+}
+
+.separator {
+  font-weight: bold;
+  margin: 0 1px 0 2px;
+}
+
+.flex-table-primary {
+  width: 99%;
+  padding-right: 5px;
+}
+
+// home login / sign-up form
+.remember-forgot {
+  font-size: 14px;
+  .remember {
+    cursor: pointer;
+    font-weight: normal;
+  }
+}
+
+// remember-me checkbox
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
 }

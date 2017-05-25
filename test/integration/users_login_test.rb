@@ -6,8 +6,8 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   end
 
   test "login with invalid information" do
-    get login_path
-    assert_template 'sessions/new'
+    get root_path
+    assert_template 'shared/_login_signup'
 
     post login_path, params: { session: { email: 'invalid', password: 'invalid' } }
     assert_template 'sessions/new'
@@ -18,8 +18,8 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   end
 
   test "login with valid information followed by logout" do
-    get login_path
-    assert_select "a[href=?]", login_path
+    get root_path
+    assert_template 'shared/_login_signup'
 
     post login_path, params: { session: { email: @user.email, password: 'password' } }
     assert is_logged_in?
@@ -33,7 +33,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     delete logout_path
     assert_not is_logged_in?
     assert_redirected_to root_url
-    # simulate a user cliocking logout in a a second window
+    # simulate a user clicking logout in a a second window
     delete logout_path
     # continue in our "previous" window
     follow_redirect!

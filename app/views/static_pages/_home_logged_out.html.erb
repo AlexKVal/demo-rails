@@ -1,13 +1,17 @@
-<div class="center jumbotron">
-  <h1>Welcome to the Sample App</h1>
-
-  <h2>
-    This is the home page for the
-    <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
-    sample application.
-  </h2>
-
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-primary btn-lg" %>
+<div class="row">
+  <div class="col-sm-7 col-lg-8">
+    <div class="center jumbotron">
+      <h1>Welcome</h1>
+      <h2>This is the home page.</h2>
+      <hr>
+      <div>
+        <%= link_to image_tag("rails.png", alt: "Rails logo"), "http://rubyonrails.org/" %>
+      </div>
+      <hr>
+      <%= link_to "Sign up now!", signup_path, class: "btn btn-primary btn-lg" %>
+    </div>
+  </div>
+  <div class="col-sm-5 col-lg-4">
+    <%= render 'shared/login_signup' %>
+  </div>
 </div>
-
-<%= link_to image_tag("rails.png", alt: "Rails logo"), "http://rubyonrails.org/" %>

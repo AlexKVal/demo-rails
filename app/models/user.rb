@@ -43,9 +43,12 @@ class User < ApplicationRecord
 
   # defines a proto-feed
   def feed
+    following_ids = active_relationships.select(:followed_id)
+    own_microposts = Micropost.where(user: self)
+
     Micropost
-      .where(user_id: active_relationships.select(:followed_id))
-      .or(Micropost.where(user: self))
+      .where(user_id: following_ids)
+      .or(own_microposts)
       .includes(:user)
   end
 

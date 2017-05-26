@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
         redirect_to root_path, warning: message
       end
     else
-      flash[:data_email] = params[:session][:email]
+      session[:data_email] = params[:session][:email]
       redirect_to root_path, danger: "Incorrect email/password"
     end
   end

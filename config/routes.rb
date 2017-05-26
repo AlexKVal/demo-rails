@@ -17,7 +17,9 @@ Rails.application.routes.draw do
     get :following, :followers , on: :member
   end
 
-  resources :password_resets,     only: [:new, :create, :edit, :update]
+  resources :password_resets, only: [:new, :create, :update]
+  get 'reset_password/:id', to: 'password_resets#edit', as: :reset_password
+
   resources :microposts,          only: [:create, :destroy, :index]
   resources :relationships,       only: [:create, :destroy]
 end

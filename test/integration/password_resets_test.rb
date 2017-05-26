@@ -22,15 +22,15 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     # password reset form
     user = assigns(:user)
     # wrong email
-    get edit_password_reset_path(user.reset_token, email: '')
+    get reset_password_path(user.reset_token, email: '')
     assert_redirected_to root_path
     # inactive user
     user.toggle!(:activated)
-    get edit_password_reset_path(user.reset_token, email: user.email)
+    get reset_password_path(user.reset_token, email: user.email)
     assert_redirected_to root_path
     user.toggle!(:activated) # activate it back
     # right email, right token
-    get edit_password_reset_path(user.reset_token, email: user.email)
+    get reset_password_path(user.reset_token, email: user.email)
     assert_template 'password_resets/edit'
     assert_select 'input[name=email][type=hidden][value=?]', user.email
     # invalid password & confirmation

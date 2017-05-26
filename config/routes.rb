@@ -11,11 +11,12 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
+  get 'account_activate/:id', to: 'account_activations#edit', as: :account_activate
+
   resources :users do
     get :following, :followers , on: :member
   end
 
-  resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :microposts,          only: [:create, :destroy, :index]
   resources :relationships,       only: [:create, :destroy]

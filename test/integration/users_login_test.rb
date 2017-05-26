@@ -5,6 +5,13 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     @user = users(:michael)
   end
 
+  test "login form remembers previously entered values" do
+    some_email = 'some@email.com'
+    post login_path, params: { session: { email: some_email, password: '' } }
+    follow_redirect!
+    assert_select '#session_email[value=?]', some_email
+  end
+
   test "login with invalid information" do
     get root_path
     assert_template 'shared/_login_form'
@@ -13,7 +20,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_path
     follow_redirect!
     assert_template 'shared/_login_form'
-    assert_not flash.empty?
+    assert_match /incorrect/i, flash[:danger]
 
     get root_path
     assert flash.empty?

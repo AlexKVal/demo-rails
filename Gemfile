@@ -54,6 +54,3 @@ group :test do
   gem 'guard' # A CLI tool to easily handle events on file system modifications
   gem 'guard-minitest' # Guard::Minitest automatically run your tests (much like autotest)
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

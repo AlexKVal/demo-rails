@@ -32,6 +32,8 @@ gem 'pg', '0.18.4' # use postgres in all three environments
 gem 'faker', '1.6.6' # I want it in production too
 
 group :development do
+  # Annotate Rails classes with schema and routes info
+  gem 'annotate', git: 'https://github.com/ctran/annotate_models.git'
   gem 'meta_request' # Chrome extension for Rails development
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

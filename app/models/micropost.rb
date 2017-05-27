@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: microposts
+#
+#  id         :integer          not null, primary key
+#  content    :text
+#  user_id    :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  picture    :string
+#
+# Indexes
+#
+#  user_and_created_index  (user_id,created_at)
+#
+
 class Micropost < ApplicationRecord
   belongs_to :user, counter_cache: true
 

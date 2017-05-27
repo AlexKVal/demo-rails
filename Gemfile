@@ -7,80 +7,53 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
-# Use Puma as the app server
-gem 'puma', '~> 3.0'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'puma', '~> 3.0' # Use Puma as the app server
+gem 'sass-rails', '~> 5.0' # Use SCSS for stylesheets
+gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
+gem 'jquery-rails' # Use jquery as the JavaScript library
+gem 'turbolinks', '~> 5' # Turbolinks makes navigating your web application faster
+gem 'bcrypt', '~> 3.1.7' # Use ActiveModel has_secure_password
+gem 'bootstrap-sass', '3.3.6' # Official Sass port of Bootstrap 2 and 3
+gem 'local_time' # Rails engine for cache-friendly, client-side local time
+gem 'will_paginate', '3.1.1' # Pagination library for Rails
+gem 'bootstrap-will_paginate', '1.0.0' # Format will_paginate html to match Bootstrap styling
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
-# Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+####################################################################################
+# Third party services
+gem 'mailjet' # Mailjet official Ruby GEM
+gem 'fog-google', group: :production # google cloud
+gem 'google-api-client', '~> 0.8.6', group: :production # used by fog-google
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
 
-gem 'bootstrap-sass', '3.3.6'
-gem 'local_time'
-
-gem 'faker', '1.6.6' # we want it in production too
-
-gem 'will_paginate', '3.1.1'
-gem 'bootstrap-will_paginate', '1.0.0'
-
-gem 'mailjet'
-
-# this should be before carrierwave
-group :development do
-  gem 'fog-google', group: :production
-  gem 'google-api-client', '~> 0.8.6', group: :production
-end
-
-gem 'carrierwave', '~> 1.1'
-gem 'mini_magick', '~> 4.7'
-
+gem 'carrierwave', '~> 1.1' # Classier solution for file uploads for Rails
+gem 'mini_magick', '~> 4.7' # A ruby wrapper for ImageMagick
 gem 'pg', '0.18.4' # use postgres in all three environments
+gem 'faker', '1.6.6' # I want it in production too
 
-group :development, :test do
-  gem "awesome_print" # pretty print ruby objects
+group :development do
+  gem 'meta_request' # Chrome extension for Rails development
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-
-  gem 'meta_request'
-end
-
-group :development do
   gem 'pry-rails'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  # Spring speeds up development by keeping your application running in the background.
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-group :test do
-  gem 'rails-controller-testing'
-  gem 'minitest-reporters'
-  gem 'guard'
-  gem 'guard-minitest'
+group :development, :test do
+  gem "awesome_print" # pretty print ruby objects in rails console
 end
 
+group :test do
+  gem 'rails-controller-testing' # Brings back `assigns` and `assert_template` to your Rails tests
+  gem 'minitest-reporters' # Create customizable MiniTest output formats
+  gem 'guard' # A CLI tool to easily handle events on file system modifications
+  gem 'guard-minitest' # Guard::Minitest automatically run your tests (much like autotest)
+end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

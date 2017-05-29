@@ -13,6 +13,10 @@
 #
 #  user_and_created_index  (user_id,created_at)
 #
+# Foreign Keys
+#
+#  fr_rails_user_id  (user_id => users.id)
+#
 
 class Micropost < ApplicationRecord
   belongs_to :user, counter_cache: true

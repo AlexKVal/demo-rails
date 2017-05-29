@@ -258,6 +258,30 @@ CREATE INDEX user_and_created_index ON microposts USING btree (user_id, created_
 
 
 --
+-- Name: relationships fk_rails_followed_id; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY relationships
+    ADD CONSTRAINT fk_rails_followed_id FOREIGN KEY (followed_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- Name: relationships fk_rails_follower_id; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY relationships
+    ADD CONSTRAINT fk_rails_follower_id FOREIGN KEY (follower_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- Name: microposts fr_rails_user_id; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY microposts
+    ADD CONSTRAINT fr_rails_user_id FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
 -- PostgreSQL database dump complete
 --
 
@@ -276,6 +300,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20170517203222'),
 ('20170519212221'),
 ('20170523235726'),
-('20170529221454');
+('20170529221454'),
+('20170529225238');
 
 

@@ -14,5 +14,8 @@ module ToyApp
 
     # Include the authenticity token in remote forms
     config.action_view.embed_authenticity_token_in_remote_forms = true
+
+    # because of usage of a plpgsql function for ids generation
+    config.active_record.schema_format = :sql
   end
 end

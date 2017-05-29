@@ -30,6 +30,15 @@ COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 SET search_path = public, pg_catalog;
 
+--
+-- Name: next_id(regclass); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION next_id(id_seq_name regclass, OUT result bigint) RETURNS bigint
+    LANGUAGE plpgsql
+    AS $$ DECLARE our_epoch bigint := 1483228800123; seq_id bigint; now_millis bigint; BEGIN SELECT nextval(id_seq_name) % 1024 INTO seq_id; SELECT FLOOR(EXTRACT(EPOCH FROM clock_timestamp()) * 1000) INTO now_millis; result := (now_millis - our_epoch) << 13; result := result | seq_id; END; $$;
+
+
 SET default_tablespace = '';
 
 SET default_with_oids = false;
@@ -51,9 +60,9 @@ CREATE TABLE ar_internal_metadata (
 --
 
 CREATE TABLE microposts (
-    id integer NOT NULL,
+    id bigint NOT NULL,
     content text,
-    user_id integer,
+    user_id bigint,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     picture character varying
@@ -85,8 +94,8 @@ ALTER SEQUENCE microposts_id_seq OWNED BY microposts.id;
 
 CREATE TABLE relationships (
     id integer NOT NULL,
-    follower_id integer NOT NULL,
-    followed_id integer NOT NULL,
+    follower_id bigint NOT NULL,
+    followed_id bigint NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );
@@ -125,7 +134,7 @@ CREATE TABLE schema_migrations (
 --
 
 CREATE TABLE users (
-    id integer NOT NULL,
+    id bigint NOT NULL,
     name character varying,
     email character varying,
     created_at timestamp without time zone NOT NULL,
@@ -165,7 +174,7 @@ ALTER SEQUENCE users_id_seq OWNED BY users.id;
 -- Name: microposts id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY microposts ALTER COLUMN id SET DEFAULT nextval('microposts_id_seq'::regclass);
+ALTER TABLE ONLY microposts ALTER COLUMN id SET DEFAULT next_id('microposts_id_seq'::regclass);
 
 
 --
@@ -179,7 +188,7 @@ ALTER TABLE ONLY relationships ALTER COLUMN id SET DEFAULT nextval('relationship
 -- Name: users id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT next_id('users_id_seq'::regclass);
 
 
 --
@@ -301,6 +310,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20170519212221'),
 ('20170523235726'),
 ('20170529221454'),
-('20170529225238');
+('20170529225238'),
+('20170529233417');
 
 

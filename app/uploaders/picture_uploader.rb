@@ -6,7 +6,6 @@ class PictureUploader < CarrierWave::Uploader::Base
     storage :fog
   else
     storage :file
-    after :remove, :delete_empty_upstream_dirs
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -17,13 +16,16 @@ class PictureUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "uploads"
   end
 
-  def delete_empty_upstream_dirs
-    path = ::File.expand_path(store_dir, root)
-    Dir.delete(path) # fails if path not empty dir
-  rescue SystemCallError
-    true # nothing, the dir is not empty
+  def filename
+    "#{uuid}.#{file.extension}" if original_filename.present?
   end
+
+  protected
+    def uuid
+      var = :"@#{mounted_as}_uuid"
+      model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
+    end
 end

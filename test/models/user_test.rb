@@ -95,6 +95,28 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
+  test "associated active_relationships should be destroyed" do
+    other_user = users(:archer)
+    @user.save
+    assert_difference 'Relationship.count', +1 do
+      @user.follow(other_user)
+    end
+    assert_difference 'Relationship.count', -1 do
+      @user.destroy
+    end
+  end
+
+  test "associated passive_relationships should be destroyed" do
+    other_user = users(:archer)
+    @user.save
+    assert_difference 'Relationship.count', +1 do
+      other_user.follow(@user)
+    end
+    assert_difference 'Relationship.count', -1 do
+      @user.destroy
+    end
+  end
+
   test "should follow and unfollow a user" do
     michael = users(:michael)
     malory  = users(:malory)

@@ -68,8 +68,19 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_not flash.empty?
     # try to log in before activation
-    log_in_as(user)
+    get root_path
+    assert_template 'shared/_login_form'
+    assert_not user.reload.activated?
+    # (with wrong password)
+    log_in_as(user, password: "wrong password")
     assert_not is_logged_in?
+    assert_redirected_to root_path
+    assert_not flash.empty?
+    # (with correct password)
+    log_in_as(user, password: "foobar")
+    assert_not is_logged_in?
+    assert_redirected_to welcome_path
+    assert flash.empty?
     # invalid activation token
     get account_activate_path("invalid token", email: user.email)
     assert_not is_logged_in?

@@ -10,8 +10,7 @@ class SessionsController < ApplicationController
         params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
         redirect_back_or root_path
       else
-        message = "Account not activated. Check your email for the activation link."
-        redirect_to root_path, warning: message
+        redirect_to welcome_path
       end
     else
       session[:data_email] = params[:session][:email]

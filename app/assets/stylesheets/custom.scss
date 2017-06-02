@@ -19,11 +19,16 @@ body {
 
   height: 426px;
 
-  color: #777;
+  color: white;
+  text-shadow: 5px 3px 13px black;
 
   background-image: image-url("hugo-sousa-270201.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+
+  h1 {
+    font-size: 74px;
+  }
 }
 
 section {

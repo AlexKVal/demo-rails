@@ -22,6 +22,7 @@ gem 'bootstrap-will_paginate', '1.0.0' # Format will_paginate html to match Boot
 ####################################################################################
 # Third party services
 gem 'mailjet' # Mailjet official Ruby GEM
+gem 'mjml-rails' # MJML + ERb/Haml/Slim view templateg
 gem 'fog-google', group: :production # google cloud
 gem 'google-api-client', '~> 0.8.6', group: :production # used by fog-google
 

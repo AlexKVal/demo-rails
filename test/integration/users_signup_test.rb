@@ -46,7 +46,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
         password: "foobar"
       } }
     end
-    assert_not flash.empty?
     assert_equal "text/javascript", response.content_type
     assert_equal 1, ActionMailer::Base.deliveries.size
   end
@@ -64,9 +63,11 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_equal 1, ActionMailer::Base.deliveries.size
     user = assigns(:user)
     assert_not user.activated?
-    assert_redirected_to root_path
+    assert_redirected_to welcome_path
     follow_redirect!
-    assert_not flash.empty?
+    assert flash.empty?
+    assert_select '.email', 'john@example.com'
+
     # try to log in before activation
     get root_path
     assert_template 'shared/_login_form'
@@ -84,6 +85,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert flash.empty?
     assert_select '.email', 'john@example.com'
+
     # invalid activation token
     get account_activate_path("invalid token", email: user.email)
     assert_not is_logged_in?
@@ -97,6 +99,14 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_not flash.empty?
     assert is_logged_in?
+    assert session[:data_email].nil? # clean up
+
+    # login the activated user with correct password
+    log_in_as(user, password: "foobar")
+    assert is_logged_in?
+    assert_redirected_to root_path
+    follow_redirect!
+    assert flash.empty?
     assert session[:data_email].nil? # clean up
   end
 end

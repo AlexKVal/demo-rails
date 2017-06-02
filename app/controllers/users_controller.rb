@@ -29,7 +29,8 @@ class UsersController < ApplicationController
 
     if @user.save
       @user.send_activation_email
-      redirect_to root_path, info: 'Please check your email to activate your account.'
+      session[:data_email] = @user.email
+      redirect_to welcome_path
     else
       respond_to do |format|
         format.html { render :new }

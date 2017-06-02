@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
         session.delete(:data_email)
         redirect_back_or root_path
       else
-        session[:data_email] = params[:session][:email]
+        session[:data_email] = @user.email
         redirect_to welcome_path
       end
     else

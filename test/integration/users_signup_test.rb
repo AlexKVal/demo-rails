@@ -75,12 +75,15 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     log_in_as(user, password: "wrong password")
     assert_not is_logged_in?
     assert_redirected_to root_path
+    follow_redirect!
     assert_not flash.empty?
     # (with correct password)
     log_in_as(user, password: "foobar")
     assert_not is_logged_in?
     assert_redirected_to welcome_path
+    follow_redirect!
     assert flash.empty?
+    assert_select '.email', 'john@example.com'
     # invalid activation token
     get account_activate_path("invalid token", email: user.email)
     assert_not is_logged_in?
@@ -94,5 +97,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_not flash.empty?
     assert is_logged_in?
+    assert session[:data_email].nil? # clean up
   end
 end

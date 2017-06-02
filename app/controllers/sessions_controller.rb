@@ -8,8 +8,10 @@ class SessionsController < ApplicationController
       if @user.activated?
         log_in @user
         params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
+        session.delete(:data_email)
         redirect_back_or root_path
       else
+        session[:data_email] = params[:session][:email]
         redirect_to welcome_path
       end
     else

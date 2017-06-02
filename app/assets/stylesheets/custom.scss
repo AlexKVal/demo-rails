@@ -12,6 +12,20 @@ body {
   padding-top: 60px;
 }
 
+.welcome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 426px;
+
+  color: #777;
+
+  background-image: image-url("hugo-sousa-270201.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 section {
   overflow: auto;
 }

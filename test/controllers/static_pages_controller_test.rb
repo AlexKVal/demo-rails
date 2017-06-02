@@ -28,4 +28,10 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select "title", "Contact | #{@base_title}"
   end
+
+  test "should get welcome" do
+    get welcome_url
+    assert_response :success
+    assert_select "title", "Welcome | #{@base_title}"
+  end
 end

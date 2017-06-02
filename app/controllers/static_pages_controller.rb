@@ -6,6 +6,10 @@ class StaticPagesController < ApplicationController
     end
   end
 
+  def welcome
+    @email = 'example@user.com'
+  end
+
   def help
   end
 

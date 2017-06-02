@@ -16,9 +16,10 @@
   <% end %>
 
   <div class="panel-body">
-    <%= form_for @user, remote: true do |f| %>
+    <%= form_for @user, html: { autocomplete: 'off' }, remote: true do |f| %>
       <div class="form-group">
-        <%= f.text_field :name, class: 'form-control', placeholder: 'Full name' %>
+        <%= f.text_field :name, class: 'form-control', placeholder: 'Full name',
+                          autocorrect: 'off', autocapitalize: 'off' %>
       </div>
 
       <div class="form-group">

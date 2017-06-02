@@ -17,5 +17,8 @@ module ToyApp
 
     # Because of custom ids generator
     config.active_record.schema_format = :sql
+
+    # The application name
+    config.app_name = 'Kind Of Twitter'
   end
 end

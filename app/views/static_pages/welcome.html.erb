@@ -3,9 +3,9 @@
 <div class="row">
   <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
     <div class="page-header">
-      <h1>Welcome to Kind of Twitter</h1>
+      <h1>Welcome to <%= Rails.configuration.app_name %></h1>
     </div>
-    <p>Congratulations, and welcome to Kind of Twitter! The last step is to confirm your email address.</p>
+    <p>Congratulations, and welcome to <%= Rails.configuration.app_name %>! The last step is to confirm your email address.</p>
 
     <p>We've sent a confirmation email to <strong class="email"><%= session[:data_email] || 'your email' %></strong>. Please follow the link in that email to confirm your email address and then you'll be able to sign in to your new account.</p>
 

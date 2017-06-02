@@ -1,5 +1,7 @@
-Hi <%= @user.name %>
+Hi <%= @user.name %>,
 
-Welcome to the Sample App! Click on the link below to activate your account:
+Welcome to <%= Rails.configuration.app_name %>!
+
+Click on the link below to activate your account:
 
 <%= account_activate_url(@user.activation_token, email: @user.email) %>

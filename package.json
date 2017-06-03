@@ -1,0 +1,22 @@
+{
+  "name": "kind-of-twitter",
+  "version": "0.0.1",
+  "description": "portfolio project",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "mjml": "^3.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.heroku.com/alexkval-twitter.git"
+  },
+  "author": "",
+  "license": "MIT"
+}

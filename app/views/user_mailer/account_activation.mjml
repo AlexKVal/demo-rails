@@ -1,0 +1,32 @@
+<mjml>
+  <mj-body>
+    <mj-container background-color="#f8f8f8">
+      <mj-section background-color="white" padding-bottom="0">
+        <mj-column>
+          <mj-text font-size="30px"
+            color="#1da1f2"
+            font-weight="bold"><%= Rails.configuration.app_name %></mj-text>
+          <mj-divider border-color="#e7e7e7"></mj-divider>
+        </mj-column>
+      </mj-section>
+
+      <mj-section background-color="white">
+        <mj-column font-size="20">
+          <mj-text font-size="16">Hi <%= @user.name %>,</mj-text>
+
+          <mj-text font-size="14">
+            Welcome to <%= Rails.configuration.app_name %>!
+            Click on the link below to activate your account:
+          </mj-text>
+
+          <mj-spacer height="20px" />
+
+          <mj-button background-color="#F45E43"
+            href="<%= account_activate_url(@user.activation_token, email: @user.email) %>">
+            Activate
+          </mj-button>
+        </mj-column>
+      </mj-section>
+    </mj-container>
+  </mj-body>
+</mjml>

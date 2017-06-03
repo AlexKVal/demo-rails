@@ -5,7 +5,8 @@
       <mj-section background-color="white" />
       <mj-text font-size="14" />
       <mj-class name="logo-header" font-size="30px" color="#1da1f2" font-weight="bold" />
-      <mj-class name="btn-cta"  background-color="#F45E43" />
+      <mj-class name="btn-cta" background-color="#F45E43" />
+      <mj-class name="fine-print" font-size="12px" color="#999" />
     </mj-attributes>
   </mj-head>
 

@@ -23,7 +23,7 @@ class UserMailer < ApplicationMailer
       subject: 'Password reset'
     ) do |format|
       format.text
-      format.html
+      format.mjml
     end
   end
 end

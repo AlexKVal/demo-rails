@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$logo-color: #1da1f2;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -70,7 +71,7 @@ p {
 }
 
 #logo {
-  color: #1da1f2; // twitter color
+  color: $logo-color;
 }
 .navbar-brand {
   font-size: 1.7em;

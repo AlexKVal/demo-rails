@@ -4,64 +4,169 @@
   <title>The change you wanted was rejected (422)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-  body {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
+  html, body {
+    height: 100%;
+    min-height: 490px;
     margin: 0;
   }
-
-  div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
+  .error-page-wrapper {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #FFFFFF;
+    background-image: url(/standby.png);
+    background-repeat:no-repeat;
+    background-size:cover;
   }
 
-  div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  .error-page-wrapper .content-container {
+    border-radius: 6px;
+    text-align: center;
+    padding:50px;
+    background-color: #fff;
+    max-width:525px;
+    margin-left:auto;
+    margin-right:auto;
   }
 
-  h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
+  .error-page-wrapper .head-line {
+    font-size:48px;
+    line-height:60px;
+    letter-spacing: -1px;
+    margin-bottom: 5px;
+  }
+  .error-page-wrapper .subheader {
+    font-size:36px;
+    line-height:46px;
+  }
+  .error-page-wrapper .hr {
+    height:1px;
+    background-color: #ddd;
+    width:60%;
+    max-width:250px;
+    margin:35px auto;
+  }
+  .error-page-wrapper .context {
+    font-size:18px;
+    line-height:27px;
+  }
+  .error-page-wrapper .context p {
+    margin:0;
+  }
+  .error-page-wrapper .context p:nth-child(n+2) {
+    margin-top:16px;
+  }
+  .error-page-wrapper .buttons-container {
+    margin-top: 35px;
+    overflow: hidden;
+  }
+  .error-page-wrapper .buttons-container a {
+    font-size:14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 99px;
+    padding:12px 0 13px;
+    text-align: center;
+    width:45%;
   }
 
-  div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  .error-page-wrapper .buttons-container a:nth-child(1) {
+    float:left;
+  }
+
+  .error-page-wrapper .buttons-container a:nth-child(2) {
+    float:right;
+  }
+
+  @media screen and (max-width: 555px) {
+    .error-page-wrapper {
+      padding:0 5%;
+    }
+    .error-page-wrapper .content-container {
+      padding:37px;
+    }
+    .error-page-wrapper .head-line {
+      font-size:36px;
+    }
+    .error-page-wrapper .subheader {
+      font-size:27px;
+      line-height: 37px;
+    }
+    .error-page-wrapper .hr {
+      margin:30px auto;
+      width:215px;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    .error-page-wrapper .head-line {
+      font-size:32px;
+    }
+    .error-page-wrapper .hr {
+      margin:25px auto;
+      width:180px;
+    }
+    .error-page-wrapper .context {
+      font-size:15px;
+      line-height:22px;
+    }
+
+    .error-page-wrapper .context p:nth-child(n+2) {
+      margin-top:10px;
+    }
+    .error-page-wrapper .buttons-container {
+      margin-top:29px;
+    }
+    .error-page-wrapper .buttons-container a {
+      font-size:13px;
+      padding:9px 0;
+    }
+  }
+  /* =========== */
+  .primary-text-color {
+    color: #494949;
+  }
+
+  .secondary-text-color {
+    color: #AAAAAA;
+  }
+
+  .button {
+    display: inline-block;
+    background-color: #2ECC71;
+    color: #FFFFFF;
+  }
+
+  .shadow {
+    box-shadow: 0 0 58px #000000;
   }
   </style>
 </head>
 
-<body>
-  <!-- This file lives in public/422.html -->
-  <div class="dialog">
-    <div>
-      <h1>The change you wanted was rejected.</h1>
-      <p>Maybe you tried to change something you didn't have access to.</p>
+<body class="error-page-wrapper">
+  <div class="content-container shadow">
+    <div class="head-line secondary-text-color">
+      422
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <div class="subheader primary-text-color">
+      The change you wanted was rejected.
+    </div>
+    <div class="hr"></div>
+    <div class="context secondary-text-color">
+      <p>
+        Maybe you tried to change something you didn't have access to.
+        If you think something is broken, report a problem.
+      </p>
+    </div>
+    <div class="buttons-container">
+      <a class="button" href="/">Go To Homepage</a>
+      <a class="button" href="mailto:alexkval@gmail.com">Report A Problem</a>
+    </div>
   </div>
 </body>
 </html>

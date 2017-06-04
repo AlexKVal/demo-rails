@@ -4,4 +4,4 @@ Welcome to <%= Rails.configuration.app_name %>!
 
 Click on the link below to activate your account:
 
-<%= account_activate_url(@user.activation_token, email: @user.email) %>
+<%= account_activate_url(@token, email: @user.email) %>

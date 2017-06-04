@@ -94,14 +94,17 @@ class User < ApplicationRecord
     update_columns(activated: true, activated_at: Time.zone.now, updated_at: Time.zone.now)
   end
 
+  # I am passing virtual params (activation_ and reset_ tokens) as a second param
+  # because of async job behind the scenes used by UserMailer
+  # https://stackoverflow.com/a/42602214/3874570
   def send_activation_email
     ensure_activation_token_set
-    UserMailer.account_activation(self).deliver_now unless activated?
+    UserMailer.account_activation(self, activation_token).deliver_later unless activated?
   end
 
   def send_password_reset_email
     ensure_reset_token_set
-    UserMailer.password_reset(self).deliver_now
+    UserMailer.password_reset(self, reset_token).deliver_later
     update_attribute(:reset_sent_at, Time.zone.now)
   end
 

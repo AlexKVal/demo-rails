@@ -3,8 +3,9 @@ class UserMailer < ApplicationMailer
     'alexkval@gmail.com'
   end
 
-  def account_activation(user)
+  def account_activation(user, token)
     @user = user
+    @token = token
     mail(
       to: user.email,
       bcc: admin_email,
@@ -15,8 +16,9 @@ class UserMailer < ApplicationMailer
     end
   end
 
-  def password_reset(user)
+  def password_reset(user, token)
     @user = user
+    @token = token
     mail(
       to: user.email,
       bcc: admin_email,

@@ -10,7 +10,7 @@
     <mj-spacer height="20px" />
 
     <mj-button mj-class="btn-cta"
-      href="<%= account_activate_url(@user.activation_token, email: @user.email) %>">
+      href="<%= account_activate_url(@token, email: @user.email) %>">
       Activate
     </mj-button>
   </mj-column>

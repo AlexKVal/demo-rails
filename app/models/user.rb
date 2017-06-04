@@ -33,7 +33,6 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower # 'source' on purpose
 
-  before_create :create_activation_digest
   before_save { self.email.downcase! }
 
   validates :name, presence: true, length: { maximum: 50 }
@@ -95,23 +94,13 @@ class User < ApplicationRecord
     update_columns(activated: true, activated_at: Time.zone.now, updated_at: Time.zone.now)
   end
 
-  # sends activation email
   def send_activation_email
-    unless activation_token
-      create_activation_digest
-      save
-    end
+    ensure_activation_token_set
     UserMailer.account_activation(self).deliver_now unless activated?
   end
 
-  # sets the password reset attributes
-  def create_reset_digest
-    self.reset_token = User.new_token
-    update_attribute(:reset_digest, User.digest(reset_token))
-  end
-
-  # sends password reset email
   def send_password_reset_email
+    ensure_reset_token_set
     UserMailer.password_reset(self).deliver_now
     update_attribute(:reset_sent_at, Time.zone.now)
   end
@@ -137,8 +126,17 @@ class User < ApplicationRecord
 
   private
 
-    def create_activation_digest
-      self.activation_token = User.new_token
-      self.activation_digest = User.digest(activation_token)
+    def ensure_activation_token_set
+      unless activation_token
+        self.activation_token = User.new_token
+        update_attribute(:activation_digest, User.digest(activation_token))
+      end
+    end
+
+    def ensure_reset_token_set
+      unless reset_token
+        self.reset_token = User.new_token
+        update_attribute(:reset_digest, User.digest(reset_token))
+      end
     end
 end

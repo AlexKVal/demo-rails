@@ -134,4 +134,35 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_equal "Please verify your email address", mail.subject
     assert_equal ['john@example.com'], mail.to
   end
+
+  test "edge cases: send_activation_email_again when session[:data_email] is clean" do
+    # the 're-send' button should not be shown
+    get welcome_path
+    assert_select 'form[action=?]', send_activation_email_again_path, count: 0
+
+    # if a user tries to curl post and session[:data_email] is empty
+    assert_no_difference 'ActionMailer::Base.deliveries.size' do
+      post send_activation_email_again_path
+    end
+    assert_response :no_content
+
+    # if there is no user with such email anymore
+    # sign up a user
+    assert_difference 'User.count', +1 do
+      post signup_path, params: { user: {
+        name: "John Dow",
+        email: "john@example.com",
+        password: "foobar"
+      } }
+    end
+    # then delete it
+    User.last.delete
+
+    # session[:data_email] still contains the email for the deleted user
+    assert_no_difference 'ActionMailer::Base.deliveries.size' do
+      post send_activation_email_again_path
+    end
+    assert_redirected_to root_path
+    assert_equal "There is no user with john@example.com email.", flash[:danger]
+  end
 end

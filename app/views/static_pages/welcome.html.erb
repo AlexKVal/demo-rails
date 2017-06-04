@@ -21,6 +21,6 @@
     <hr>
     <%= form_tag send_activation_email_again_path, remote: true do %>
       <%= submit_tag 'Send me it again', class: 'btn btn-info' %>
-    <% end %>
+    <% end if session[:data_email] %>
   </div>
 </div>

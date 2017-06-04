@@ -66,6 +66,8 @@ class UsersController < ApplicationController
   end
 
   def send_activation_email_again
+    return unless session[:data_email] # for a user trying to curl post
+
     @user = User.find_by(email: session[:data_email])
 
     if @user

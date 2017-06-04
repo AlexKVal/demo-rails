@@ -15,6 +15,12 @@
       <li>Check if you have used the correct email.</li>
       <li>Check your spam folder.</li>
       <li>Contact us at <a href="mailto: fishkareports@gmail.com">support email</a>.</li>
+      <li> <a href="mailto: fishkareports@gmail.com">support email</a>.</li>
     </ul>
+
+    <hr>
+    <%= form_tag send_activation_email_again_path, remote: true do %>
+      <%= submit_tag 'Send me it again', class: 'btn btn-info' %>
+    <% end %>
   </div>
 </div>

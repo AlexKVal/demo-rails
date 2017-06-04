@@ -109,4 +109,29 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert flash.empty?
     assert session[:data_email].nil? # clean up
   end
+
+  test "re-sending activation email" do
+    # sign up a new user
+    assert_difference 'User.count', +1 do
+      post signup_path, params: { user: {
+        name: "John Dow",
+        email: "john@example.com",
+        password: "foobar"
+      } }
+    end
+    assert_equal 1, ActionMailer::Base.deliveries.size
+    assert_redirected_to welcome_path
+    follow_redirect!
+    assert flash.empty?
+    assert_select '.email', 'john@example.com'
+    assert_select 'form[action=?]', send_activation_email_again_path
+
+    # 'send me it again'
+    assert_difference 'ActionMailer::Base.deliveries.size', +1 do
+      post send_activation_email_again_path
+    end
+    mail = ActionMailer::Base.deliveries.last
+    assert_equal "Please verify your email address", mail.subject
+    assert_equal ['john@example.com'], mail.to
+  end
 end

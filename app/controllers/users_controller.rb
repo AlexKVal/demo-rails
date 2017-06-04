@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user,       except: [:index, :new, :create]
+  before_action :set_user,       except: [:index, :new, :create, :send_activation_email_again]
   before_action :logged_in_user, only: [:edit, :update, :index, :destroy, :following, :followers]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
@@ -63,6 +63,17 @@ class UsersController < ApplicationController
     @title = 'Followers'
     @users = @user.followers.page(params[:page])
     render 'show_follow'
+  end
+
+  def send_activation_email_again
+    @user = User.find_by(email: session[:data_email])
+
+    if @user
+      @user.send_activation_email
+      redirect_to welcome_path, info: "The confirmation email has been sent again."
+    else
+      redirect_to root_path, danger: "There is no user with #{session[:data_email]} email."
+    end
   end
 
   private

@@ -97,6 +97,10 @@ class User < ApplicationRecord
 
   # sends activation email
   def send_activation_email
+    unless activation_token
+      create_activation_digest
+      save
+    end
     UserMailer.account_activation(self).deliver_now unless activated?
   end
 

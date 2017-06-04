@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'welcome', to: 'static_pages#welcome'
 
   post 'signup', to: 'users#create'
+  post 'send_activation_email_again', to: 'users#send_activation_email_again'
 
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'

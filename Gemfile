@@ -18,6 +18,7 @@ gem 'bootstrap-sass', '3.3.6' # Official Sass port of Bootstrap 2 and 3
 gem 'local_time' # Rails engine for cache-friendly, client-side local time
 gem 'will_paginate', '3.1.1' # Pagination library for Rails
 gem 'bootstrap-will_paginate', '1.0.0' # Format will_paginate html to match Bootstrap styling
+gem "autoprefixer-rails" # Autoprefixer for Ruby and Ruby on Rails
 
 ####################################################################################
 # Third party services

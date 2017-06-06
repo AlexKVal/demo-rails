@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title_prefix yield(:title) %><%= Rails.configuration.app_name %></title>
+    <title><%= title_prefix yield(:page_title) %><%= Rails.configuration.app_name %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>

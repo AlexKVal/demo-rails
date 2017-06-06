@@ -15,10 +15,11 @@ gem 'jquery-rails' # Use jquery as the JavaScript library
 gem 'turbolinks', '~> 5' # Turbolinks makes navigating your web application faster
 gem 'bcrypt', '~> 3.1.7' # Use ActiveModel has_secure_password
 gem 'bootstrap-sass', '3.3.6' # Official Sass port of Bootstrap 2 and 3
-gem 'local_time' # Rails engine for cache-friendly, client-side local time
+gem 'local_time', '1.0.3' # Rails engine for cache-friendly, client-side local time
 gem 'will_paginate', '3.1.1' # Pagination library for Rails
 gem 'bootstrap-will_paginate', '1.0.0' # Format will_paginate html to match Bootstrap styling
-gem "autoprefixer-rails" # Autoprefixer for Ruby and Ruby on Rails
+gem "autoprefixer-rails", '7.1.1' # Autoprefixer for Ruby and Ruby on Rails
+gem 'simple_form', '3.5.0' # Forms made easy with a simple DSL, with no opinion on markup.
 
 ####################################################################################
 # Third party services

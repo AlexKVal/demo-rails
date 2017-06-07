@@ -1,31 +1,29 @@
 en:
+  # buttons text is for helpers
+  helpers:
+    submit:
+      create: 'Create My Account'
+      update: 'Save Changes'
+  # and here we go
   simple_form:
     "yes": 'Yes'
     "no": 'No'
     required:
       text: 'required'
       mark: '*'
-      # You can uncomment the line below if you need to overwrite the whole required html.
-      # When using html, text and mark won't be used.
-      # html: '<abbr title="required">*</abbr>'
-    error_notification:
-      default_message: "Please review the problems below:"
-    # Examples
-    # labels:
-    #   defaults:
-    #     password: 'Password'
-    #   user:
-    #     new:
-    #       email: 'E-mail to sign in.'
-    #     edit:
-    #       email: 'E-mail.'
-    # hints:
-    #   defaults:
-    #     username: 'User name to sign in.'
-    #     password: 'No special characters, please.'
-    # include_blanks:
-    #   defaults:
-    #     age: 'Rather not say'
-    # prompts:
-    #   defaults:
-    #     age: 'Select your age'
+    # error_notification:
+      # default_message: "Please review the problems below:"
+    labels:
+      user:
+        name: 'Username'
+        email: 'E-mail'
+        password_confirmation: 'Confirmation'
+    placeholders:
+      user:
+        name: 'Your username'
+        email: 'username@example.com'
+        password: '50m3th1ng-5t40ng'
+        password_confirmation: 'and confirm your password'
+        edit:
+          password: "leave empty to preserve the password"
+          password_confirmation: ''

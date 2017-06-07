@@ -15,15 +15,12 @@ class UsersController < ApplicationController
     redirect_to root_path unless @user.activated?
   end
 
-  # GET /users/new
+  # GET /signup
   def new
     @user = User.new
   end
 
-  # GET /users/1/edit
-  def edit
-  end
-
+  # POST /signup
   def create
     @user = User.new(user_params)
 
@@ -37,6 +34,10 @@ class UsersController < ApplicationController
         format.js
       end
     end
+  end
+
+  # GET /users/1/edit
+  def edit
   end
 
   # PATCH/PUT /users/1

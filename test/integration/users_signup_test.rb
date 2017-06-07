@@ -18,7 +18,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
       } }
     end
     assert_template 'users/new'
-    assert_select '#error_explanation .alert', 'The form contains 2 errors.'
+    assert_select '.user_email > .help-block', "is invalid"
+    assert_select '.user_password > .help-block', "can't be blank"
   end
 
   test "invalid signup information with Ajax" do

@@ -1,18 +1,7 @@
-<%= form_for(@user, url: url, html: {class: 'wide-inputs', autocomplete: 'off'}) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-
-  <%= f.label :name %>
-  <%= f.text_field :name, class: 'form-control',
-                    autocorrect: 'off', autocapitalize: 'off' %>
-
-  <%= f.label :email %>
-  <%= f.email_field :email, class: 'form-control' %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password, class: 'form-control' %>
-
-  <%= f.label :password_confirmation, "Confirmation" %>
-  <%= f.password_field :password_confirmation, class: 'form-control' %>
-
-  <%= f.submit submit_text, class: "btn btn-primary", name: nil %>
+<%= simple_form_for(@user, url: url, html: {class: 'wide-inputs', autocomplete: 'off'}) do |f| %>
+  <%= f.input :name, input_html: {autocorrect: 'off', autocapitalize: 'off'} %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation, required: true %>
+  <%= f.submit submit_text, class: "btn btn-primary" %>
 <% end %>

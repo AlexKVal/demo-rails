@@ -1,4 +1,4 @@
 <%= form_tag relationships_path, class: 'wide-inputs', remote: true do %>
   <%= hidden_field_tag :followed_id, @user.id %>
-  <%= submit_tag 'Follow', class: 'btn btn-primary', name: nil %>
+  <%= submit_tag t('helpers.submit.relationship.create'), class: 'btn btn-primary' %>
 <% end %>

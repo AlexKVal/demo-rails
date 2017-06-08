@@ -47,6 +47,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background.
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'i18n-debug' # shows which translations are being looked up by Rails
 end
 
 group :development, :test do

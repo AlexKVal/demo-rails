@@ -2,7 +2,7 @@ en:
   # buttons text is for helpers
   helpers:
     submit:
-      create: 'Create My Account'
+      create: 'Create Free Account'
       update: 'Save Changes'
       #
       relationship:
@@ -19,15 +19,22 @@ en:
       # default_message: "Please review the problems below:"
     labels:
       user:
-        name: 'Username'
-        email: 'E-mail'
+        name: 'Pick a username'
+        email: 'Your email address'
         password_confirmation: 'Confirmation'
     placeholders:
       user:
-        name: 'Your username'
-        email: 'username@example.com'
-        password: '50m3th1ng-5t40ng'
+        # defaults
+        name: 'john'
+        email: 'john@example.com'
+        password: 'Longer is safer'
         password_confirmation: 'and confirm your password'
+        # update profile
         edit:
           password: "leave empty to preserve the password"
           password_confirmation: ''
+        # sign up form at home page
+        home:
+          name: 'Full name'
+          email: 'Email'
+          password: 'Password'

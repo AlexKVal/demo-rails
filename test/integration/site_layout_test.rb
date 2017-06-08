@@ -12,7 +12,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
 
   test "home page contains a Sign Up button" do
     get root_path
-    assert_select "form input[type=submit][value='Sign up for the Awesomeness']"
+    assert_select "form input[type=submit][value='Create Free Account']"
   end
 
   test "when logged in home page contains link to users#index page" do

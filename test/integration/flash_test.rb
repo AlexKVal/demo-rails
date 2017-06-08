@@ -3,7 +3,7 @@ require 'test_helper'
 class FlashTestController < ApplicationController
   def set_flash
     flash[params[:message_type]] = 'this is a message'
-    render partial: 'layouts/flash'
+    render partial: 'application/flash'
   end
 end
 

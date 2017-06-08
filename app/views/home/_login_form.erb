@@ -1,22 +1,19 @@
 <div class="panel panel-default">
   <div class="panel-body">
-    <%= form_for :session, url: login_path, remote: true do |f| %>
+    <%= simple_form_for :session, url: login_path, defaults: {label: false}, remote: true do |f| %>
       <div class="form-group">
-        <%= f.email_field :email, class: 'form-control',
-                          value: session[:data_email],
-                          placeholder: "Email",
-                          autocomplete: "email" %>
-      </div>
+      <%= f.input :email, required: true,
+                  input_html: { autocomplete: "email", value: session[:data_email] } %>
 
       <div class="form-group">
         <table class="flex-table">
           <tbody>
             <tr>
               <td class="flex-table-primary">
-                <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
+                <%= f.input_field :password, class: 'form-control', required: true %>
               </td>
               <td class="flex-table-secondary">
-                <%= f.submit "Log in", class: 'btn btn-primary' %>
+                <%= f.submit class: 'btn btn-primary' %>
               </td>
             </tr>
           </tbody>
@@ -26,10 +23,10 @@
       <div class="remember-forgot text-muted">
         <label class="remember">
           <%= f.check_box :remember_me, checked: true %>
-          <span>Remember me</span>
+          <span><%= t(:remember_me) %></span>
         </label>
         <span class="separator">·</span>
-        <%= link_to "Forgot password?", new_password_reset_path, html: { rel: 'noopener' } %>
+        <%= link_to t(:forgot_password), new_password_reset_path, rel: 'noopener' %>
       </div>
     <% end %>
   </div>

@@ -7,7 +7,9 @@ en:
       #
       relationship:
         update: 'Unfollow'
-        create: 'Follow'
+      # login form at home page
+      session:
+        submit: 'Log in'
   # and here we go
   simple_form:
     "yes": 'Yes'
@@ -23,12 +25,16 @@ en:
         email: 'Your email address'
         password_confirmation: 'Confirmation'
     placeholders:
+      defaults:
+        email: 'Email'
+        password: 'Password'
       user:
-        # defaults
-        name: 'john'
-        email: 'john@example.com'
-        password: 'Longer is safer'
-        password_confirmation: 'and confirm your password'
+        # new / signup page
+        new:
+          name: 'john'
+          email: 'john@example.com'
+          password: 'Longer is safer'
+          password_confirmation: 'and confirm your password'
         # update profile
         edit:
           password: "leave empty to preserve the password"
@@ -36,5 +42,3 @@ en:
         # sign up form at home page
         home:
           name: 'Full name'
-          email: 'Email'
-          password: 'Password'

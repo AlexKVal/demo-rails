@@ -35,8 +35,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_template 'users/create'
     assert_equal "text/javascript", response.content_type
     unescaped_body = CGI.unescape_html(response.body)
-    assert_match "Email is invalid", unescaped_body
-    assert_match "Password can\'t be blank", unescaped_body
+    assert_match "is invalid", unescaped_body
+    assert_match "can\'t be blank", unescaped_body
   end
 
   test "valid signup information with Ajax" do

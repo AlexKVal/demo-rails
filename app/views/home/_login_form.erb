@@ -1,7 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-body">
     <%= simple_form_for :session, url: login_path, defaults: {label: false}, remote: true do |f| %>
-      <div class="form-group">
       <%= f.input :email, required: true,
                   input_html: { autocomplete: "email", value: session[:data_email] } %>
 

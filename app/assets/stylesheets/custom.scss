@@ -1,11 +1,5 @@
 $logo-color: #1da1f2;
 
-@mixin box_sizing {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box_sizing: border-box;
-}
-
 body {
   padding-top: 60px;
 }
@@ -78,7 +72,6 @@ p {
 
 
 /* footer */
-
 footer {
   margin-top: 45px;
   padding-top: 5px;
@@ -115,7 +108,7 @@ footer {
   float: left;
   width: 100%;
   margin-top: 45px;
-  @include box-sizing;
+  box-sizing: border-box;
 }
 
 /* forms */
@@ -125,7 +118,7 @@ footer {
     border: 1px solid #bbb;
     width: 100%;
     margin-bottom: 15px;
-    @include box_sizing;
+    box-sizing: border-box;
   }
 }
 
@@ -211,7 +204,6 @@ span.picture {
     font-weight: normal;
   }
 }
-
 // remember-me checkbox
 .checkbox {
   margin-top: -10px;

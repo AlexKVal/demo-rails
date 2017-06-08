@@ -14,12 +14,12 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 
   test "login with invalid information" do
     get root_path
-    assert_template 'shared/_login_form'
+    assert_template 'home/_login_form'
 
     post login_path, params: { session: { email: 'invalid', password: 'invalid' } }
     assert_redirected_to root_path
     follow_redirect!
-    assert_template 'shared/_login_form'
+    assert_template 'home/_login_form'
     assert_match /incorrect/i, flash[:danger]
 
     get root_path
@@ -28,7 +28,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 
   test "login with valid information followed by logout" do
     get root_path
-    assert_template 'shared/_login_form'
+    assert_template 'home/_login_form'
 
     post login_path, params: { session: { email: @user.email, password: 'password' } }
     assert is_logged_in?

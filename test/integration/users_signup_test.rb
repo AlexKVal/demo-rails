@@ -76,7 +76,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 
       # try to log in before activation
       get root_path
-      assert_template 'shared/_login_form'
+      assert_template 'home/_login_form'
       assert_not user.reload.activated?
       # (with wrong password)
       log_in_as(user, password: "wrong password")

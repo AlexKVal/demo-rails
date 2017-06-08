@@ -9,7 +9,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 
   test "invalid signup information with JS-disabled browser" do
     get root_path
-    assert_template 'shared/_signup_form'
+    assert_template 'home/_signup_form'
     assert_no_difference 'User.count' do
       post signup_path, params: { user: {
         name: "John Dow",
@@ -24,7 +24,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 
   test "invalid signup information with Ajax" do
     get root_path
-    assert_template 'shared/_signup_form'
+    assert_template 'home/_signup_form'
     assert_no_difference 'User.count' do
       post signup_path, xhr: true, params: { user: {
         name: "John Dow",
@@ -41,7 +41,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 
   test "valid signup information with Ajax" do
     get root_path
-    assert_template 'shared/_signup_form'
+    assert_template 'home/_signup_form'
     perform_enqueued_jobs do
       assert_difference 'User.count', +1 do
         post signup_path, xhr: true, params: { user: {
@@ -57,7 +57,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 
   test "valid signup information with account activation and JS-disabled browser" do
     get root_path
-    assert_template 'shared/_signup_form'
+    assert_template 'home/_signup_form'
     perform_enqueued_jobs do
       assert_difference 'User.count', +1 do
         post signup_path, params: { user: {

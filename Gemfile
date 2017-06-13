@@ -38,8 +38,7 @@ group :development do
   # Annotate Rails classes with schema and routes info
   gem 'annotate', git: 'https://github.com/ctran/annotate_models.git'
   gem 'meta_request' # Chrome extension for Rails development
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
+  gem "better_errors" # Better error page for Rack apps
   gem 'pry-rails'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'

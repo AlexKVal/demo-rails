@@ -1,16 +1,4 @@
 en:
-  # buttons text is for helpers
-  helpers:
-    submit:
-      create: 'Create Free Account'
-      update: 'Save Changes'
-      #
-      relationship:
-        update: 'Unfollow'
-      # login form at home page
-      session:
-        submit: 'Log in'
-  # and here we go
   simple_form:
     "yes": 'Yes'
     "no": 'No'

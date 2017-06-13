@@ -37,7 +37,7 @@ en:
           password_confirmation: 'and confirm your password'
         # update profile
         edit:
-          password: "leave empty to preserve the password"
+          password: "leave blank if you don't want to change it"
           password_confirmation: ''
         # sign up form at home page
         home:

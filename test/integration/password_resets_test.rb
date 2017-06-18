@@ -40,18 +40,19 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
       get reset_password_path(user.reset_token, email: user.email)
       assert_template 'password_resets/edit'
       assert_select 'input[name=email][type=hidden][value=?]', user.email
-      # invalid password & confirmation
+      # invalid confirmation
       patch password_reset_path(user.reset_token), params: {
         email: user.email,
         user: { password: 'foobaz', password_confirmation: 'barbaz' }
       }
-      assert_select 'div#error_explanation'
+      assert_select '.user_password_confirmation', class: 'has-error'
       # empty password
       patch password_reset_path(user.reset_token), params: {
         email: user.email,
         user: { password: '', password_confirmation: '' }
       }
-      assert_select 'div#error_explanation'
+      assert_select '.user_password', class: 'has-error'
+      assert_select '.user_password_confirmation', class: 'has-error'
       # valid password & confirmation
       patch password_reset_path(user.reset_token), params: {
         email: user.email,

@@ -24,3 +24,6 @@ en:
   remember_me: 'Remember me'
   forgot_password: 'Forgot password?'
   follow: 'Follow'
+  password_reset:
+    password: 'enter your new password'
+    confirm: 'confirm your new password'

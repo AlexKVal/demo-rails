@@ -18,8 +18,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
       } }
     end
     assert_template 'users/new'
-    assert_select '.user_email > .help-block', "is invalid"
-    assert_select '.user_password > .help-block', "can't be blank"
+    assert_select '.user_email', class: 'has-error'
+    assert_select '.user_password', class: 'has-error'
   end
 
   test "invalid signup information with Ajax" do
@@ -172,6 +172,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
       post send_activation_email_again_path
     end
     assert_redirected_to root_path
-    assert_equal "There is no user with john@example.com email.", flash[:danger]
+    assert_match "john@example.com", flash[:danger]
   end
 end

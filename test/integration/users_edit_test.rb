@@ -17,10 +17,10 @@ class UsersEditTest < ActionDispatch::IntegrationTest
       password_confirmation: 'bar'
     } }
     assert_template 'users/edit'
-    assert_select '.user_name > .help-block', "can't be blank"
-    assert_select '.user_email > .help-block', "is invalid"
-    assert_select '.user_password > .help-block', "is too short (minimum is 6 characters)"
-    assert_select '.user_password_confirmation > .help-block', "doesn't match Password"
+    assert_select '.user_name', class: 'has-error'
+    assert_select '.user_email', class: 'has-error'
+    assert_select '.user_password', class: 'has-error'
+    assert_select '.user_password_confirmation', class: 'has-error'
   end
 
   test "successful edit with friendly forwarding" do

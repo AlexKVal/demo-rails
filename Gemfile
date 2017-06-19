@@ -20,6 +20,11 @@ gem 'will_paginate', '3.1.1' # Pagination library for Rails
 gem 'bootstrap-will_paginate', '1.0.0' # Format will_paginate html to match Bootstrap styling
 gem "autoprefixer-rails", '7.1.1' # Autoprefixer for Ruby and Ruby on Rails
 gem 'simple_form', '3.5.0' # Forms made easy with a simple DSL, with no opinion on markup.
+gem 'carrierwave', '~> 1.1' # Classier solution for file uploads for Rails
+gem 'mini_magick', '~> 4.7' # A ruby wrapper for ImageMagick
+gem 'pg', '0.18.4' # use postgres in all three environments
+gem 'faker', '1.6.6' # I want it in a production too
+gem 'title', '0.0.7' # Abuses I18n to set HTML <title>s
 
 ####################################################################################
 # Third party services
@@ -29,14 +34,8 @@ gem 'fog-google', group: :production # google cloud
 gem 'google-api-client', '~> 0.8.6', group: :production # used by fog-google
 
 
-gem 'carrierwave', '~> 1.1' # Classier solution for file uploads for Rails
-gem 'mini_magick', '~> 4.7' # A ruby wrapper for ImageMagick
-gem 'pg', '0.18.4' # use postgres in all three environments
-gem 'faker', '1.6.6' # I want it in production too
-
 group :development do
-  # Annotate Rails classes with schema and routes info
-  gem 'annotate', git: 'https://github.com/ctran/annotate_models.git'
+  gem 'annotate', '2.7.2' # Annotate Rails classes with schema and routes info
   gem 'meta_request' # Chrome extension for Rails development
   gem "better_errors" # Better error page for Rack apps
   gem 'pry-rails'

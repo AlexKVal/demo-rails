@@ -1,4 +1,4 @@
-<%= simple_form_for @micropost do |f| %>
+<%= simple_form_for @micropost, remote: true do |f| %>
   <%= f.input :content, label: false, autofocus: true %>
 
   <div class="input-group form-group">

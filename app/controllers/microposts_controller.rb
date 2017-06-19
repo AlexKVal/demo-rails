@@ -1,16 +1,6 @@
 class MicropostsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
-  before_action :correct_user,   only: [:destroy]
-
-  # a quick and dirty hack for showing paginated microposts
-  # TODO: DRY it with StaticPagesController#home
-  def index
-    if logged_in?
-      @micropost  = current_user.microposts.build
-      @feed_items = current_user.feed.page(params[:page])
-    end
-    render 'static_pages/home'
-  end
+  before_action :logged_in_user
+  before_action :correct_user, only: [:destroy]
 
   # POST /microposts
   def create
@@ -18,8 +8,13 @@ class MicropostsController < ApplicationController
     if @micropost.save
       redirect_to root_path, success: "Micropost published"
     else
-      @feed_items = current_user.feed.page(params[:page])
-      render 'home/index'
+      respond_to do |format|
+        format.js # create.js.erb
+        format.html do
+          flash[:danger] = @micropost.errors.map{|k, v| "#{k} #{v}"}.join(', ')
+          redirect_to root_path(page: params[:page])
+        end
+      end
     end
   end
 

@@ -16,6 +16,8 @@ en:
       defaults:
         email: 'Email'
         password: 'Password'
+      micropost:
+        content: 'Compose new micropost...'
       user:
         # new / signup page
         new:

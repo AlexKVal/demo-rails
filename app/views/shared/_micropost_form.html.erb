@@ -1,17 +1,15 @@
-<%= form_for(@micropost, html: {class: 'wide-inputs'}) do |f| %>
-  <%= render "shared/error_messages", object: f.object %>
+<%= simple_form_for @micropost do |f| %>
+  <%= f.input :content, label: false, autofocus: true %>
 
-  <div class="field">
-    <%= f.text_area :content, placeholder: "Compose new micropost..." %>
-  </div>
-
-  <div class="input-group add-picture">
+  <div class="input-group form-group">
     <label class="input-group-btn">
       <span class="btn btn-info">
-        Browse&hellip; <%= f.file_field :picture, accept: 'image/*', style: "display: none;" %>
+        <%= t(:browse) %><%= f.file_field :picture, accept: 'image/*', style: "display: none;" %>
       </span>
     </label>
-    <input id="file_name" type="text" placeholder="Add a picture..." class="form-control" readonly>
+    <%= text_field_tag :file_name, nil, name: nil,
+                        placeholder: t(:add_picture),
+                        class: 'form-control', readonly: true %>
     <div class="input-group-btn unselect-picture hidden">
       <button class="btn btn-warning">
         <i class="glyphicon glyphicon-remove"></i>
@@ -19,5 +17,5 @@
     </div>
   </div>
 
-  <%= f.submit "Post", class: "btn btn-success", name: nil %>
+  <%= f.submit class: "btn btn-success btn-block" %>
 <% end %>

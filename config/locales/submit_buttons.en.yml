@@ -11,3 +11,5 @@ en:
         submit: 'Log in'
       password_reset:
         submit: 'Send Me Reset Link'
+      micropost:
+        create: 'Post'

@@ -1,14 +1,16 @@
 <% provide(:page_title, "Update profile") %>
-<h1>Update your profile</h1>
+<div class="page-header">
+  <h1 class="text-center">Update your profile</h1>
+</div>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= simple_form_for(@user, html: {class: 'wide-inputs'}) do |f| %>
+    <%= simple_form_for @user do |f| %>
       <%= f.input :name %>
       <%= f.input :email %>
       <%= f.input :password, required: false %>
       <%= f.input :password_confirmation %>
-      <%= f.submit class: "btn btn-primary" %>
+      <%= f.submit class: "btn btn-primary btn-block" %>
     <% end %>
     <div class="gravatar_edit">
       <%= gravatar_for @user %>

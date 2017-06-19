@@ -18,9 +18,8 @@ class MicropostsController < ApplicationController
     if @micropost.save
       redirect_to root_path, success: "Micropost published"
     else
-      # @feed_items = []
       @feed_items = current_user.feed.page(params[:page])
-      render 'static_pages/home'
+      render 'home/index'
     end
   end
 

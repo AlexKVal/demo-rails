@@ -127,6 +127,10 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
+  def to_s
+    name
+  end
+
   private
 
     def ensure_activation_token_set

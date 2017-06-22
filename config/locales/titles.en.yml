@@ -1,0 +1,20 @@
+en:
+  titles:
+    application: App
+    home:
+      index: Home
+    static_pages:
+      about: About
+      contact: Contact
+      help: Help
+      welcome: Welcome
+    users:
+      default: '%{user}'
+      index: All users
+      new: Sign up
+      edit: Edit profile
+      following: Following
+      followers: Followers
+    password_resets:
+      new: Forgot password
+      edit: Reset password

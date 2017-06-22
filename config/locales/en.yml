@@ -2,9 +2,11 @@ en:
   # home page
   remember_me: Remember me
   forgot_password: Forgot password?
-  follow: Follow
   browse: Browse...
   add_picture: Add a picture...
+  # _follow_form
+  follow: Follow
+  unfollow: Unfollow
   # _header
   toggle_navigation: Toggle navigation
   home: Home

@@ -7,3 +7,6 @@
 
 ### For testing
 - run `be guard` and then press 'enter' to run all tests
+
+### Mails preview
+- open http://lvh.me:5000/rails/mailers

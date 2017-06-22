@@ -6,9 +6,9 @@
     <%= image_tag micropost.picture.url, alt: 'uuid file name' if micropost.picture? %>
   </div>
   <div class="timestamp small">
-    Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+    <%= "#{t(:posted)} #{time_ago_in_words(micropost.created_at)} #{t(:ago)}." %>
     <% if current_user?(micropost.user) %>
-      <%= link_to "delete", micropost, method: :delete, data: { confirm: "You sure?" } %>
+      <%= link_to "delete", micropost, method: :delete, data: { confirm: t(:you_sure) } %>
     <% end %>
   </div>
 </li>

@@ -1,24 +1,26 @@
 <div class="row">
   <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
     <div class="page-header">
-      <h1 class="text-center">Welcome to <%= Rails.configuration.app_name %></h1>
+      <h1 class="text-center"><%= t(:welcome_to, app_name: Rails.configuration.app_name) %></h1>
     </div>
-    <p>Congratulations, and welcome to <%= Rails.configuration.app_name %>! The last step is to confirm your email address.</p>
+    <p><%= t(:congratulations_and_welcome, app_name: Rails.configuration.app_name) %></p>
 
-    <p>We've sent a confirmation email to <strong class="email"><%= session[:data_email] || 'your email' %></strong>. Please follow the link in that email to confirm your email address and then you'll be able to sign in to your new account.</p>
+    <p>
+      <%= t(:we_send_confirmation_mail_to) %> <strong class="email">
+      <%= session[:data_email] || t(:your_email) %></strong>. <%= t(:please_follow_the_link) %>
+    </p>
 
-    <p>If you haven't received the email in five minutes, please check the following:</p>
+    <p><%= t(:if_you_havent_received) %></p>
 
     <ul>
-      <li>Check if you have used the correct email.</li>
-      <li>Check your spam folder.</li>
-      <li>Contact us at <a href="mailto: fishkareports@gmail.com">support email</a>.</li>
-      <li> <a href="mailto: fishkareports@gmail.com">support email</a>.</li>
+      <li><%= t(:check_correct_email) %></li>
+      <li><%= t(:check_your_spam_folder) %></li>
+      <li><%= t(:contact_us_at_html, email: 'fishkareports@gmail.com') %></li>
     </ul>
 
     <hr>
     <%= form_tag send_activation_email_again_path, remote: true do %>
-      <%= submit_tag 'Send me it again', class: 'btn btn-info' %>
+      <%= submit_tag t(:send_me_it_again), class: 'btn btn-info' %>
     <% end if session[:data_email] %>
   </div>
 </div>

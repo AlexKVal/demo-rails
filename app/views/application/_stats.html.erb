@@ -5,7 +5,7 @@
       <span id="following" class="stat badge">
         <%= @user.following.count %>
       </span>
-      following
+      <%= t(:following) %>
     </a>
   </div>
   <div class="col-xs-6">
@@ -13,7 +13,7 @@
       <span id="followers" class="stat badge">
         <%= followers_count = @user.followers.count %>
       </span>
-      <%= "follower".pluralize(followers_count) %>
+      <%= t(:follower).pluralize(followers_count) %>
     </a>
   </div>
 </div>

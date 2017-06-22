@@ -1,3 +1,59 @@
+en:
+  # home page
+  remember_me: Remember me
+  forgot_password: Forgot password?
+  follow: Follow
+  browse: Browse...
+  add_picture: Add a picture...
+  # _header
+  toggle_navigation: Toggle navigation
+  home: Home
+  help: Help
+  users: Users
+  account: Account
+  profile: Profile
+  edit_profile: Edit profile
+  log_out: Log out
+  following: following
+  follower: follower
+  # _footer
+  about: About
+  contact: Contact
+  news: News
+  # _user_info
+  view_my_profile: view my profile
+  micropost: micropost
+  edit: edit
+  # _feed
+  feed: Feed
+  # _marketing
+  welcome: Welcome
+  # _signup_form
+  new_user_q: New user ?
+  sign_up: Sign up
+  # password_resets/edit.html.erb
+  password_reset:
+    password: enter your new password
+    confirm: confirm your new password
+  # _micropost
+  posted: Posted
+  ago: ago
+  you_sure: Are you sure?
+  # welcome
+  send_me_it_again: Send me it again
+  welcome_to: Welcome to %{app_name}
+  congratulations_and_welcome: Congratulations, and welcome to %{app_name}!
+    The last step is to confirm your email address.
+  we_send_confirmation_mail_to: We've sent a confirmation email to
+  your_email: your email
+  please_follow_the_link: Please follow the link in that email to confirm your email address
+    and then you'll be able to sign in to your new account.
+  if_you_havent_received: "If you haven't received the email in five minutes,
+    please check the following:"
+  check_correct_email: Check if you have used the correct email.
+  check_your_spam_folder: Check your spam folder.
+  contact_us_at_html: 'Contact us at <a href="mailto: %{email}">support email</a>.'
+
 # Files in the config/locales directory are used for internationalization
 # and are automatically loaded by Rails. If you want to use locales other
 # than English, add the necessary files in this directory.
@@ -18,14 +74,3 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
-
-en:
-  hello: "Hello world"
-  remember_me: 'Remember me'
-  forgot_password: 'Forgot password?'
-  follow: 'Follow'
-  browse: 'Browse...'
-  add_picture: 'Add a picture...'
-  password_reset:
-    password: 'enter your new password'
-    confirm: 'confirm your new password'

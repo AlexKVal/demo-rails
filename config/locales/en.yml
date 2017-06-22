@@ -61,6 +61,11 @@ en:
       welcome: 'Welcome to %{app_name}!'
       click: 'Click on the link below to activate your account:'
       activate: Activate
+    password_reset:
+      to_reset: 'To reset your password click the button:'
+      reset_password: 'Reset password'
+      this_link: 'This link will expire in two hours.'
+      if_you: 'If you did not request your password to be reset, just ignore this email.'
 
 # Files in the config/locales directory are used for internationalization
 # and are automatically loaded by Rails. If you want to use locales other

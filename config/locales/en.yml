@@ -31,10 +31,6 @@ en:
   # _signup_form
   new_user_q: New user ?
   sign_up: Sign up
-  # password_resets/edit.html.erb
-  password_reset:
-    password: enter your new password
-    confirm: confirm your new password
   # _micropost
   posted: Posted
   ago: ago
@@ -53,7 +49,12 @@ en:
   check_correct_email: Check if you have used the correct email.
   check_your_spam_folder: Check your spam folder.
   contact_us_at_html: 'Contact us at <a href="mailto: %{email}">support email</a>.'
-  # account_activation
+
+  password_resets:
+    edit:
+      password: enter your new password
+      confirm: confirm your new password
+
   user_mailer:
     account_activation:
       hi: 'Hi %{name},'

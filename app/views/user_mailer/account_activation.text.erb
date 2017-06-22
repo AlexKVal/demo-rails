@@ -1,7 +1,7 @@
-Hi <%= @user.name %>,
+<%= t('.hi', name: @user.name) %>
 
-Welcome to <%= Rails.configuration.app_name %>!
+<%= t('.welcome', app_name: Rails.configuration.app_name) %>
 
-Click on the link below to activate your account:
+<%= t('.click') %>
 
 <%= account_activate_url(@token, email: @user.email) %>

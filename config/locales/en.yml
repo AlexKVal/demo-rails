@@ -53,6 +53,13 @@ en:
   check_correct_email: Check if you have used the correct email.
   check_your_spam_folder: Check your spam folder.
   contact_us_at_html: 'Contact us at <a href="mailto: %{email}">support email</a>.'
+  # account_activation
+  user_mailer:
+    account_activation:
+      hi: 'Hi %{name},'
+      welcome: 'Welcome to %{app_name}!'
+      click: 'Click on the link below to activate your account:'
+      activate: Activate
 
 # Files in the config/locales directory are used for internationalization
 # and are automatically loaded by Rails. If you want to use locales other

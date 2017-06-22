@@ -1,17 +1,17 @@
 <mj-section background-color="white">
   <mj-column>
-    <mj-text font-size="16">Hi <%= @user.name %>,</mj-text>
+    <mj-text font-size="16"><%= t('.hi', name: @user.name) %></mj-text>
 
     <mj-text>
-      Welcome to <%= Rails.configuration.app_name %>!
-      Click on the link below to activate your account:
+      <%= t('.welcome', app_name: Rails.configuration.app_name) %>
+      <%= t('.click') %>
     </mj-text>
 
     <mj-spacer height="20px" />
 
     <mj-button mj-class="btn-cta"
       href="<%= account_activate_url(@token, email: @user.email) %>">
-      Activate
+      <%= t('.activate') %>
     </mj-button>
   </mj-column>
 </mj-section>

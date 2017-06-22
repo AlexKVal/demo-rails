@@ -35,20 +35,22 @@ en:
   posted: Posted
   ago: ago
   you_sure: Are you sure?
-  # welcome
-  send_me_it_again: Send me it again
-  welcome_to: Welcome to %{app_name}
-  congratulations_and_welcome: Congratulations, and welcome to %{app_name}!
-    The last step is to confirm your email address.
-  we_send_confirmation_mail_to: We've sent a confirmation email to
-  your_email: your email
-  please_follow_the_link: Please follow the link in that email to confirm your email address
-    and then you'll be able to sign in to your new account.
-  if_you_havent_received: "If you haven't received the email in five minutes,
-    please check the following:"
-  check_correct_email: Check if you have used the correct email.
-  check_your_spam_folder: Check your spam folder.
-  contact_us_at_html: 'Contact us at <a href="mailto: %{email}">support email</a>.'
+
+  static_pages:
+    welcome:
+      send_me_it_again: Send me it again
+      welcome_to: Welcome to %{app_name}
+      congratulations_and_welcome: Congratulations, and welcome to %{app_name}!
+        The last step is to confirm your email address.
+      we_send_confirmation_mail_to: We've sent a confirmation email to
+      your_email: your email
+      please_follow_the_link: Please follow the link in that email to confirm your email address
+        and then you'll be able to sign in to your new account.
+      if_you_havent_received: "If you haven't received the email in five minutes,
+        please check the following:"
+      check_correct_email: Check if you have used the correct email.
+      check_your_spam_folder: Check your spam folder.
+      contact_us_at_html: 'Contact us at <a href="mailto: %{email}">support email</a>.'
 
   password_resets:
     edit:

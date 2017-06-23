@@ -6,7 +6,7 @@ class MicropostsController < ApplicationController
   def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
-      redirect_to root_path, success: "Micropost published"
+      redirect_to root_path, success: t('.success')
     else
       respond_to do |format|
         format.js # create.js.erb

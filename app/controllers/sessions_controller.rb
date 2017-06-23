@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
       end
     else
       session[:data_email] = params[:session][:email]
-      redirect_to root_path, danger: "Incorrect email/password"
+      redirect_to root_path, danger: t('.incorrect')
     end
   end
 

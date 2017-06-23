@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     def logged_in_user
       unless logged_in?
         store_location
-        redirect_to root_path, danger: 'Please log in.'
+        redirect_to root_path, danger: t(:please_login)
       end
     end
 end

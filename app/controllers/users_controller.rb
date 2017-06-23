@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   def update
     if @user.update(user_params)
-      redirect_to @user, success: 'Profile updated'
+      redirect_to @user, success: t('.success')
     else
       render :edit
     end
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to users_url, success: "User deleted"
+    redirect_to users_url, success: t('.success')
   end
 
   def following
@@ -71,9 +71,9 @@ class UsersController < ApplicationController
 
     if @user
       @user.send_activation_email
-      redirect_to welcome_path, info: "The confirmation email has been sent again."
+      redirect_to welcome_path, info: t('.success')
     else
-      redirect_to root_path, danger: "There is no user with #{session[:data_email]} email."
+      redirect_to root_path, danger: t('.no_user_with', email: session[:data_email])
     end
   end
 

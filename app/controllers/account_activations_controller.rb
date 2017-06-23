@@ -5,9 +5,9 @@ class AccountActivationsController < ApplicationController
       user.activate
       log_in user
       session.delete(:data_email)
-      redirect_to root_path, success: "Account activated!"
+      redirect_to root_path, success: t('.success')
     else
-      redirect_to root_path, danger: "Invalid activation link"
+      redirect_to root_path, danger: t('.invalid_link')
     end
   end
 end

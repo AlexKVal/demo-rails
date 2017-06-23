@@ -9,7 +9,7 @@
             <%= gravatar_for(@user) %>
             <%= @user.name %>
             <% if current_user?(@user) %>
-              <span class='edit-link'><%= link_to "(edit)", edit_user_path(@user) %></span>
+              <span class='edit-link'><%= link_to "(#{t(:edit)})", edit_user_path(@user) %></span>
             <% end %>
           </h3>
         </div>
@@ -26,7 +26,7 @@
   <div class="col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Microposts <span class="badge"><%= @user.microposts_count %></span></h3>
+        <h3 class="panel-title"><%= t(:microposts) %> <span class="badge"><%= @user.microposts_count %></span></h3>
       </div>
       <ul class="list-group microposts">
         <%= render @microposts %>

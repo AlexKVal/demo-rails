@@ -25,6 +25,7 @@ en:
   # _user_info
   view_my_profile: view my profile
   micropost: micropost
+  microposts: Microposts
   edit: edit
   # users
   delete: delete

@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   get 'account_activate/:id', to: 'account_activations#edit', as: :account_activate
 
   resources :users, except: [:new, :create] do
-    get :following, :followers , on: :member
+    member do
+      get :following, :followers
+      patch :follow, :unfollow
+    end
   end
   get 'signup', to: 'users#new'
   post 'signup', to: 'users#create'

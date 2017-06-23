@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user,       except: [:index, :new, :create, :send_activation_email_again]
-  before_action :logged_in_user, only: [:edit, :update, :index, :destroy, :following, :followers]
+  before_action :logged_in_user, only: [:edit, :update, :index, :destroy, :following, :followers,
+                                        :follow, :unfollow]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
 
@@ -75,6 +76,16 @@ class UsersController < ApplicationController
     else
       redirect_to root_path, danger: t('.no_user_with', email: session[:data_email])
     end
+  end
+
+  def follow
+    current_user.follow(@user) unless current_user.following?(@user)
+    render 'follow_unfollow'
+  end
+
+  def unfollow
+    current_user.unfollow(@user) if current_user.following?(@user)
+    render 'follow_unfollow'
   end
 
   private

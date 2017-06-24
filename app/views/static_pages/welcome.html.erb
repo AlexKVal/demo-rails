@@ -18,9 +18,10 @@
       <li><%= t('.contact_us_at_html', email: 'fishkareports@gmail.com') %></li>
     </ul>
 
-    <hr>
-    <%= form_tag send_activation_email_again_path, remote: true do %>
-      <%= submit_tag t('.send_me_it_again'), class: 'btn btn-info' %>
-    <% end if session[:data_email] %>
+    <% if session[:data_email] %>
+      <hr>
+      <%= button_to t('.send_me_it_again'), send_activation_email_again_path,
+                    remote: true, class: 'btn btn-info' if session[:data_email] %>
+    <% end %>
   </div>
 </div>

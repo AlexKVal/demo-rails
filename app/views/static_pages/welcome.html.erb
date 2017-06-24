@@ -20,8 +20,8 @@
 
     <% if session[:data_email] %>
       <hr>
-      <%= button_to t('.send_me_it_again'), send_activation_email_again_path,
-                    remote: true, class: 'btn btn-info' if session[:data_email] %>
+      <%= button_to t('.send_me_it_again'), activation_email_send_again_path,
+                    remote: true, class: 'btn btn-info' %>
     <% end %>
   </div>
 </div>

@@ -132,11 +132,11 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
       follow_redirect!
       assert flash.empty?
       assert_select '.email', 'john@example.com'
-      assert_select 'form[action=?]', send_activation_email_again_path
+      assert_select 'form[action=?]', activation_email_send_again_path
 
       # 'send me it again'
       assert_difference 'ActionMailer::Base.deliveries.size', +1 do
-        post send_activation_email_again_path
+        post activation_email_send_again_path
       end
       mail = ActionMailer::Base.deliveries.last
       assert_equal "Please verify your email address", mail.subject
@@ -144,14 +144,14 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "edge cases: send_activation_email_again when session[:data_email] is clean" do
+  test "edge cases: activation_email_send_again when session[:data_email] is clean" do
     # the 're-send' button should not be shown
     get welcome_path
-    assert_select 'form[action=?]', send_activation_email_again_path, count: 0
+    assert_select 'form[action=?]', activation_email_send_again_path, count: 0
 
     # if a user tries to curl post and session[:data_email] is empty
     assert_no_difference 'ActionMailer::Base.deliveries.size' do
-      post send_activation_email_again_path
+      post activation_email_send_again_path
     end
     assert_response :no_content
 
@@ -169,7 +169,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 
     # session[:data_email] still contains the email for the deleted user
     assert_no_difference 'ActionMailer::Base.deliveries.size' do
-      post send_activation_email_again_path
+      post activation_email_send_again_path
     end
     assert_redirected_to root_path
     assert_match "john@example.com", flash[:danger]

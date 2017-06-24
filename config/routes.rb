@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
   get 'signup', to: 'users#new'
   post 'signup', to: 'users#create'
-  post 'send_activation_email_again', to: 'users#send_activation_email_again'
+  post 'activation_email_send_again', to: 'users#send_activation_email_again'
 
   resources :password_resets, only: [:new, :create, :update]
   get 'reset_password/:id', to: 'password_resets#edit', as: :reset_password

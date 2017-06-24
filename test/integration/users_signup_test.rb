@@ -132,11 +132,11 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
       follow_redirect!
       assert flash.empty?
       assert_select '.email', 'john@example.com'
-      assert_select 'form[action=?]', activation_email_send_again_path
+      assert_select 'form[action=?]', send_again_activation_email_path
 
       # 'send me it again'
       assert_difference 'ActionMailer::Base.deliveries.size', +1 do
-        post activation_email_send_again_path
+        post send_again_activation_email_path, params: {email: 'john@example.com'}
       end
       mail = ActionMailer::Base.deliveries.last
       assert_equal "Please verify your email address", mail.subject
@@ -144,18 +144,11 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "edge cases: activation_email_send_again when session[:data_email] is clean" do
-    # the 're-send' button should not be shown
+  test "edge cases: send_again_activation_email if there is no more user with such email" do
+    # the 're-send' button should not be shown if session[:data_email] is empty
     get welcome_path
-    assert_select 'form[action=?]', activation_email_send_again_path, count: 0
+    assert_select 'form[action=?]', send_again_activation_email_path, count: 0
 
-    # if a user tries to curl post and session[:data_email] is empty
-    assert_no_difference 'ActionMailer::Base.deliveries.size' do
-      post activation_email_send_again_path
-    end
-    assert_response :no_content
-
-    # if there is no user with such email anymore
     # sign up a user
     assert_difference 'User.count', +1 do
       post signup_path, params: { user: {
@@ -167,9 +160,9 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     # then delete it
     User.last.delete
 
-    # session[:data_email] still contains the email for the deleted user
+    # the form still contains the email of the deleted user
     assert_no_difference 'ActionMailer::Base.deliveries.size' do
-      post activation_email_send_again_path
+      post send_again_activation_email_path, params: {email: "john@example.com"}
     end
     assert_redirected_to root_path
     assert_match "john@example.com", flash[:danger]

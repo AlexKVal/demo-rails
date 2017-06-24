@@ -101,7 +101,7 @@ en:
       success: 'Profile updated'
     destroy:
       success: 'User deleted'
-    send_activation_email_again:
+    send_again_activation_email:
       success: 'The confirmation email has been sent again.'
       no_user_with: 'There is no user with %{email} email.'
 

@@ -65,15 +65,13 @@ class UsersController < ApplicationController
   end
 
   def send_activation_email_again
-    return unless session[:data_email] # for a user trying to curl post
-
-    @user = User.find_by(email: session[:data_email])
+    @user = User.find_by(email: params[:email])
 
     if @user
       @user.send_activation_email
       redirect_to welcome_path, info: t('.success')
     else
-      redirect_to root_path, danger: t('.no_user_with', email: session[:data_email])
+      redirect_to root_path, danger: t('.no_user_with', email: params[:email])
     end
   end
 

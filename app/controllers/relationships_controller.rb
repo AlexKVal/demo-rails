@@ -6,7 +6,7 @@ class RelationshipsController < ApplicationController
     current_user.follow(@user) unless current_user.following?(@user)
     respond_to do |format|
       format.html { redirect_to @user }
-      format.js
+      format.js   { render 'follow_unfollow' }
     end
   end
 
@@ -15,7 +15,7 @@ class RelationshipsController < ApplicationController
     current_user.unfollow(@user) if @user
     respond_to do |format|
       format.html { redirect_to @user }
-      format.js
+      format.js   { render 'follow_unfollow' }
     end
   rescue ActiveRecord::RecordNotFound
     redirect_back(fallback_location: root_path)

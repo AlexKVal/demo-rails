@@ -18,7 +18,12 @@
           <%= render 'stats' %>
         </div>
 
-        <%= render 'follow_form' if logged_in? %>
+        <% if logged_in? && !current_user?(@user) %>
+          <div id="follow_unfollow" class="panel-footer">
+            <%= render 'follow_unfollow_button' %>
+          </div>
+        <% end %>
+
       </div>
     </section>
   </aside>

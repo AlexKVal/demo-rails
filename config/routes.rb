@@ -13,8 +13,8 @@ Rails.application.routes.draw do
 
   resources :users, except: [:new, :create] do
     member do
-      get :following, :followers
-      patch :follow, :unfollow
+      get :following
+      get :followers
     end
   end
   get 'signup', to: 'users#new'

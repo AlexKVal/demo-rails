@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user,       except: [:index, :new, :create, :send_again_activation_email]
+  before_action :set_user,       except: [:index, :new, :create]
   before_action :logged_in_user, only: [:edit, :update, :index, :destroy, :following, :followers]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
@@ -62,17 +62,6 @@ class UsersController < ApplicationController
   def followers
     @users = @user.followers.page(params[:page])
     render 'show_follow'
-  end
-
-  def send_again_activation_email
-    @user = User.find_by(email: params[:email])
-
-    if @user
-      @user.send_activation_email
-      redirect_to welcome_path, info: t('.success')
-    else
-      redirect_to root_path, danger: t('.no_user_with', email: params[:email])
-    end
   end
 
   private

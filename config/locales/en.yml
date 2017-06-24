@@ -101,9 +101,10 @@ en:
       success: 'Profile updated'
     destroy:
       success: 'User deleted'
-    send_again_activation_email:
-      success: 'The confirmation email has been sent again.'
-      no_user_with: 'There is no user with %{email} email.'
+
+  activation_emails:
+    success: 'The confirmation email has been sent again.'
+    no_user_with: 'There is no user with %{email} email.'
 
 # Files in the config/locales directory are used for internationalization
 # and are automatically loaded by Rails. If you want to use locales other

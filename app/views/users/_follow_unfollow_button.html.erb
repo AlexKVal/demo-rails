@@ -1,7 +1,7 @@
 <% if current_user.following?(@user) %>
-  <%= link_to t(:unfollow), unfollow_user_path(@user), method: :patch, remote: true,
+  <%= button_to t(:unfollow), unfollow_user_path(@user), method: :patch, remote: true,
               class: 'btn btn-default btn-block' %>
 <% else %>
-  <%= link_to t(:follow), follow_user_path(@user), method: :patch, remote: true,
+  <%= button_to t(:follow), follow_user_path(@user), method: :patch, remote: true,
               class: 'btn btn-primary btn-block' %>
 <% end %>

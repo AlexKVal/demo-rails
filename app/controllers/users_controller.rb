@@ -80,12 +80,18 @@ class UsersController < ApplicationController
 
   def follow
     current_user.follow(@user) unless current_user.following?(@user)
-    render 'follow_unfollow'
+    respond_to do |format|
+      format.js   { render 'follow_unfollow' }
+      format.html { redirect_to @user }
+    end
   end
 
   def unfollow
     current_user.unfollow(@user) if current_user.following?(@user)
-    render 'follow_unfollow'
+    respond_to do |format|
+      format.js   { render 'follow_unfollow' }
+      format.html { redirect_to @user }
+    end
   end
 
   private

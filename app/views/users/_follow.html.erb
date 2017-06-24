@@ -1,4 +1,2 @@
-<%= form_tag relationships_path, remote: true do %>
-  <%= hidden_field_tag :followed_id, @user.id %>
-  <%= submit_tag t(:follow), class: 'btn btn-primary btn-block' %>
-<% end %>
+<%= button_to t(:follow), relationships_path, params: {followed: @user},
+              remote: true, class: 'btn btn-primary btn-block' %>

@@ -2,7 +2,15 @@
   <aside class="col-md-4">
     <%= yield :aside %>
   </aside>
+
   <div class="col-md-8">
-    <%= yield :main %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= yield :main_title %></h3>
+      </div>
+
+      <%= yield :main_list %>
+
+    </div>
   </div>
 </div>

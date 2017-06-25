@@ -25,16 +25,17 @@
   </section>
 <% end %>
 
-<% content_for :main do %>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title"><%= t('user_info.microposts') %> <span class="badge"><%= @user.microposts_count %></span></h3>
-    </div>
+<% content_for :main_title do %>
+  <%= t('user_info.microposts') %> <span class="badge"><%= @user.microposts_count %></span>
+<% end %>
+
+<% content_for :main_list do %>
+  <% if @microposts.any? %>
     <ul class="list-group microposts">
       <%= render @microposts %>
     </ul>
     <%= will_paginate @microposts, class: 'panel-footer' %>
-  </div>
+  <% end %>
 <% end %>
 
 <%= render template: 'layouts/two_columns' %>

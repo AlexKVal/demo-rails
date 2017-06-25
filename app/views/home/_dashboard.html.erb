@@ -14,8 +14,17 @@
   </section>
 <% end %>
 
-<%= content_for :main do %>
-  <%= render 'feed' %>
+<%= content_for :main_title do %>
+  <%= t(:feed) %> <span class="badge"><%= @feed_items.count %></span>
+<% end %>
+
+<% content_for :main_list do %>
+  <% if @feed_items.any? %>
+    <ul class="list-group microposts">
+      <%= render @feed_items %> <%# microposts/_micropost %>
+    </ul>
+    <%= will_paginate @feed_items, class: 'panel-footer' %>
+  <% end %>
 <% end %>
 
 <%= render template: 'layouts/two_columns' %>

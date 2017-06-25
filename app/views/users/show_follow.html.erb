@@ -18,18 +18,17 @@
   </section>
 <% end %>
 
-<% content_for :main do %>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title"><%= title %></h3>
-    </div>
-    <% if @users.any? %>
-      <ul class="list-group">
-        <%= render @users %>
-      </ul>
-      <%= will_paginate class: 'panel-footer' %>
-    <% end %>
-  </div>
+<% content_for :main_title do %>
+  <%= title %>
+<% end %>
+
+<% content_for :main_list do %>
+  <% if @users.any? %>
+    <ul class="list-group">
+      <%= render @users %>
+    </ul>
+    <%= will_paginate class: 'panel-footer' %>
+  <% end %>
 <% end %>
 
 <%= render template: 'layouts/two_columns' %>

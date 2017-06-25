@@ -4,6 +4,7 @@ en:
   forgot_password: Forgot password?
   browse: Browse...
   add_picture: Add a picture...
+  feed: Feed
   # _follow_unfollow_button
   follow: Follow
   unfollow: Unfollow
@@ -23,15 +24,13 @@ en:
   contact: Contact
   news: News
   # _user_info
-  view_my_profile: view my profile
+  view_profile: view profile
   micropost: micropost
   user_info:
     microposts: Microposts
   edit: edit
   # users
   delete: delete
-  # _feed
-  feed: Feed
   # _marketing
   welcome: Welcome
   # _signup_form

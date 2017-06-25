@@ -4,19 +4,25 @@
     <h3 class="panel-title">
       <%= gravatar_for(@user) %>
       <%= link_to @user.name, @user %>
-      <span class='edit-link'><%= link_to "(#{t(:edit)})", edit_user_path(@user) %></span>
+      <% if current_user?(@user) %>
+        <span class='edit-link'><%= link_to "(#{t(:edit)})", edit_user_path(@user) %></span>
+      <% end %>
     </h3>
   </div>
+
   <div class="panel-body text-center">
-    <div class="row">
-      <div class="col-xs-6">
-        <span><%= link_to t(:view_my_profile), @user %></span>
-      </div>
-      <div class="col-xs-6">
-        <span class="label label-info microposts-count">
-          <%= pluralize(@user.microposts_count, t(:micropost)) %>
-        </span>
-      </div>
-    </div>
+    <%= render 'stats' %>
   </div>
+
+  <% if logged_in? %>
+    <div class="panel-footer text-center">
+      <% if current_user?(@user) %>
+        <%= render 'view_profile_link' %>
+      <% else %>
+        <div id="follow_unfollow">
+          <%= render 'follow_unfollow_button' %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>

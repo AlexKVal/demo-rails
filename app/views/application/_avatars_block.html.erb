@@ -1,0 +1,9 @@
+<div class="panel panel-default">
+  <% if @users.any? %>
+    <div class="panel-body user_avatars">
+      <% @users.each do |user| %>
+        <%= link_to gravatar_for(user, size: 30), user %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

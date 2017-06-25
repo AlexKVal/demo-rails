@@ -1,17 +1,7 @@
 <% content_for :aside do %>
-  <section class="user_info">
-    <%= render 'user_info' %>
-  </section>
-  <section class="stats">
-    <div class="panel panel-default">
-      <div class="panel-body text-center">
-        <%= render 'stats' %>
-      </div>
-    </div>
-  </section>
-  <section class="micropost_form">
-    <%= render 'micropost_form' %>
-  </section>
+  <%= render 'user_info' %>
+
+  <%= render 'micropost_form' %>
 <% end %>
 
 <%= content_for :main_title do %>

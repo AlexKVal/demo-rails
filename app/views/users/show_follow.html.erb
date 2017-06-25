@@ -1,21 +1,7 @@
 <% content_for :aside do %>
-  <section class="user_info">
-    <%= render 'user_info' %>
-  </section>
-  <section class="stats">
-    <div class="panel panel-default">
-      <div class="panel-body text-center">
-        <%= render 'stats' %>
-      </div>
-      <% if @users.any? %>
-        <div class="panel-footer user_avatars">
-          <% @users.each do |user| %>
-            <%= link_to gravatar_for(user, size: 30), user %>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-  </section>
+  <%= render 'user_info' %>
+
+  <%= render 'avatars_block' %>
 <% end %>
 
 <% content_for :main_title do %>

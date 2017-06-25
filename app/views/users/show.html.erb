@@ -1,40 +1,40 @@
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user-info">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            <%= gravatar_for(@user) %>
-            <%= @user.name %>
-            <% if current_user?(@user) %>
-              <span class='edit-link'><%= link_to "(#{t(:edit)})", edit_user_path(@user) %></span>
-            <% end %>
-          </h3>
-        </div>
-
-        <div class="panel-body text-center">
-          <%= render 'stats' %>
-        </div>
-
-        <% if logged_in? && !current_user?(@user) %>
-          <div id="follow_unfollow" class="panel-footer">
-            <%= render 'follow_unfollow_button' %>
-          </div>
-        <% end %>
-
-      </div>
-    </section>
-  </aside>
-
-  <div class="col-md-8">
+<% content_for :aside do %>
+  <section class="user-info">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title"><%= t('user_info.microposts') %> <span class="badge"><%= @user.microposts_count %></span></h3>
+        <h3 class="panel-title">
+          <%= gravatar_for(@user) %>
+          <%= @user.name %>
+          <% if current_user?(@user) %>
+            <span class='edit-link'><%= link_to "(#{t(:edit)})", edit_user_path(@user) %></span>
+          <% end %>
+        </h3>
       </div>
-      <ul class="list-group microposts">
-        <%= render @microposts %>
-      </ul>
-      <%= will_paginate @microposts, class: 'panel-footer' %>
+
+      <div class="panel-body text-center">
+        <%= render 'stats' %>
+      </div>
+
+      <% if logged_in? && !current_user?(@user) %>
+        <div id="follow_unfollow" class="panel-footer">
+          <%= render 'follow_unfollow_button' %>
+        </div>
+      <% end %>
+
     </div>
+  </section>
+<% end %>
+
+<% content_for :main do %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= t('user_info.microposts') %> <span class="badge"><%= @user.microposts_count %></span></h3>
+    </div>
+    <ul class="list-group microposts">
+      <%= render @microposts %>
+    </ul>
+    <%= will_paginate @microposts, class: 'panel-footer' %>
   </div>
-</div>
+<% end %>
+
+<%= render template: 'layouts/two_columns' %>

@@ -1,34 +1,35 @@
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <%= render 'user_info' %>
-    </section>
-    <section class="stats">
-      <div class="panel panel-default">
-        <div class="panel-body text-center">
-          <%= render 'stats' %>
-        </div>
-        <% if @users.any? %>
-          <div class="panel-footer user_avatars">
-            <% @users.each do |user| %>
-              <%= link_to gravatar_for(user, size: 30), user %>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-    </section>
-  </aside>
-  <div class="col-md-8">
+<% content_for :aside do %>
+  <section class="user_info">
+    <%= render 'user_info' %>
+  </section>
+  <section class="stats">
     <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= title %></h3>
+      <div class="panel-body text-center">
+        <%= render 'stats' %>
       </div>
       <% if @users.any? %>
-        <ul class="list-group">
-          <%= render @users %>
-        </ul>
-        <%= will_paginate class: 'panel-footer' %>
+        <div class="panel-footer user_avatars">
+          <% @users.each do |user| %>
+            <%= link_to gravatar_for(user, size: 30), user %>
+          <% end %>
+        </div>
       <% end %>
     </div>
+  </section>
+<% end %>
+
+<% content_for :main do %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= title %></h3>
+    </div>
+    <% if @users.any? %>
+      <ul class="list-group">
+        <%= render @users %>
+      </ul>
+      <%= will_paginate class: 'panel-footer' %>
+    <% end %>
   </div>
-</div>
+<% end %>
+
+<%= render template: 'layouts/two_columns' %>

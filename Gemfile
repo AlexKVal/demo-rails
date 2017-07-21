@@ -49,13 +49,19 @@ group :development do
 end
 
 group :development, :test do
-  gem "awesome_print" # pretty print ruby objects in rails console
+  gem 'awesome_print' # pretty print ruby objects in rails console
 
   # RSpec related
   gem 'rspec-rails', '~> 3.5' # support rspec
 end
 
 group :test do
+  gem 'capybara' # acceptance test framework
+  gem 'poltergeist' # phantomjs driver for capybara
+  gem 'database_cleaner' # used to ensure a clean state for testing
+  gem 'capybara-screenshot' # automatically save screen shots when a Capybara scenario fails
+  gem 'launchy' # call save_and_open_page to see what's on a page for debugging capybara tests
+
   # Minitest related
   gem 'rails-controller-testing' # Brings back `assigns` and `assert_template` to your Rails tests
   gem 'minitest-reporters' # Create customizable MiniTest output formats

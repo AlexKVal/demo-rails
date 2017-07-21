@@ -50,9 +50,13 @@ end
 
 group :development, :test do
   gem "awesome_print" # pretty print ruby objects in rails console
+
+  # RSpec related
+  gem 'rspec-rails', '~> 3.5' # support rspec
 end
 
 group :test do
+  # Minitest related
   gem 'rails-controller-testing' # Brings back `assigns` and `assert_template` to your Rails tests
   gem 'minitest-reporters' # Create customizable MiniTest output formats
   gem 'guard' # A CLI tool to easily handle events on file system modifications

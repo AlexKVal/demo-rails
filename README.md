@@ -6,6 +6,7 @@
 - open in a browser http://lvh.me:5000
 
 ### For testing
+- run rspec to run specs
 - run `be guard` and then press 'enter' to run all tests
 
 ### Mails preview

@@ -54,6 +54,7 @@ group :development, :test do
 
   # RSpec related
   gem 'rspec-rails', '~> 3.5' # support rspec
+  gem 'factory_girl_rails' # a fixtures replacement
 end
 
 group :test do

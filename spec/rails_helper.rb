@@ -37,6 +37,9 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = false # database_cleaner
 
+  # http://robots.thoughtbot.com/post/33771089985/rspec-integration-tests-with-capybara
+  config.include Features::SessionHelpers, type: :feature
+
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
   # `post` in specs under `spec/controllers`.

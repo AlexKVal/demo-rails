@@ -15,7 +15,7 @@
 #
 # Foreign Keys
 #
-#  fr_rails_user_id  (user_id => users.id)
+#  fr_rails_user_id  (user_id => users.id) ON DELETE => cascade ON UPDATE => cascade
 #
 
 class Micropost < ApplicationRecord

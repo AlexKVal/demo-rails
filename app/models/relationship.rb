@@ -16,8 +16,8 @@
 #
 # Foreign Keys
 #
-#  fk_rails_followed_id  (followed_id => users.id)
-#  fk_rails_follower_id  (follower_id => users.id)
+#  fk_rails_followed_id  (followed_id => users.id) ON DELETE => cascade ON UPDATE => cascade
+#  fk_rails_follower_id  (follower_id => users.id) ON DELETE => cascade ON UPDATE => cascade
 #
 
 class Relationship < ApplicationRecord

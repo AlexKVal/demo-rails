@@ -39,7 +39,7 @@ jobs:
           environment:
             - RAILS_ENV: test
             - PGUSER: postgres
-          command: bundle exec rake db:reset
+          command: bundle exec rake db:create db:structure:load
 
       # run tests!
       - run:

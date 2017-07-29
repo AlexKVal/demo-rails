@@ -3,6 +3,12 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.4.1-node-browsers
+      # Environment variable for all commands executed in the primary container
+        environment:
+          RAILS_ENV: test
+          RAKE_ENV: test
+          PGUSER: postgres
+
       - image: circleci/postgres:9.6.3-alpine
 
     working_directory: ~/alexkval-twitter
@@ -12,12 +18,25 @@ jobs:
     steps:
       - checkout
 
+      - run:
+          name: "Checking Node.js Versions"
+          command: |
+            node --version
+            npm --version
+
+      # install 'psql' for db:structure:load
+      - run: sudo apt install postgresql-client
+
       # Download and cache dependencies
       - restore_cache:
-          keys:
-            - altw-bundler-v1-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-            - altw-bundler-v1-{{ .Branch }}-
-            - altw-bundler-v1-
+          key: altw-bundler-v1-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+
+      - restore_cache:
+          key: altw-npm-v1-{{ .Branch }}-{{ checksum "package.json" }}
+
+      - run:
+          name: install node packages
+          command: npm install
 
       - run:
           name: install bundler dependencies
@@ -29,44 +48,27 @@ jobs:
                           --retry=3
 
       - save_cache:
+          name: Save ruby gems cache
           key: altw-bundler-v1-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
           paths:
             # the --deployment flag tells bundler to install here
             - vendor/bundle
 
+      - save_cache:
+          name: Save node packages cache
+          key: altw-npm-v1-{{ .Branch }}-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+
       - run:
           name: Set up database
-          environment:
-            - RAILS_ENV: test
-            - PGUSER: postgres
           command: bundle exec rake db:create db:structure:load
 
       # run tests!
       - run:
           name: run RSpec
-          environment:
-            - RAILS_ENV: test
-            - RACK_ENV: test
-          command: |
-            mkdir /tmp/test-results
-            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
-
-            bundle exec rspec --format progress \
-                            --format RspecJunitFormatter \
-                            --out /tmp/test-results/rspec.xml \
-                            --format progress \
-                            "${TEST_FILES}"
+          command: bundle exec rspec
 
       - run:
-          name: run microtests
-          environment:
-            - RAILS_ENV: test
-            - RACK_ENV: test
-          command: bundle exec rails test
-
-      # collect reports
-      - store_test_results:
-          path: /tmp/test-results
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
+          name: run Microtests
+          command: bundle exec rake test

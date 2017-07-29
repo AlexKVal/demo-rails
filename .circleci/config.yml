@@ -38,6 +38,7 @@ jobs:
           name: Set up database
           environment:
             - RAILS_ENV: test
+            - PGUSER: postgres
           command: bundle exec rake db:create db:schema:load
 
       # run tests!

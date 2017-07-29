@@ -10,7 +10,6 @@ default: &default
 
 development:
   <<: *default
-  # database: db/development.sqlite3
   database: alexkval_twitter_dev
 
 # Warning: The database defined as "test" will be erased and
@@ -18,7 +17,6 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  # database: db/test.sqlite3
   database: alexkval_twitter_test
 
 production:

@@ -56,7 +56,7 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_no_difference 'Micropost.count' do
       post microposts_path, params: { micropost: { content: "" } }, xhr: true
     end
-    # assert_select '.micropost_content', class: 'has-error' # TODO make this is possible with Capybara
+    # assert_select '.micropost_content', class: 'has-error' # TODO make this possible with Capybara
     assert_template 'microposts/create'
     assert_equal "text/javascript", response.content_type
     assert_match "can\'t be blank", CGI.unescape_html(response.body)

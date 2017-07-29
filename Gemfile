@@ -45,14 +45,26 @@ group :development do
   # Spring speeds up development by keeping your application running in the background.
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-commands-rspec' # rspec command for Spring
   gem 'i18n-debug' # shows which translations are being looked up by Rails
 end
 
 group :development, :test do
-  gem "awesome_print" # pretty print ruby objects in rails console
+  gem 'awesome_print' # pretty print ruby objects in rails console
+
+  # RSpec related
+  gem 'rspec-rails', '~> 3.5' # support rspec
+  gem 'factory_girl_rails' # a fixtures replacement
 end
 
 group :test do
+  gem 'capybara' # acceptance test framework
+  gem 'poltergeist' # phantomjs driver for capybara
+  gem 'database_cleaner' # used to ensure a clean state for testing
+  gem 'capybara-screenshot' # automatically save screen shots when a Capybara scenario fails
+  gem 'launchy' # call save_and_open_page to see what's on a page for debugging capybara tests
+
+  # Minitest related
   gem 'rails-controller-testing' # Brings back `assigns` and `assert_template` to your Rails tests
   gem 'minitest-reporters' # Create customizable MiniTest output formats
   gem 'guard' # A CLI tool to easily handle events on file system modifications

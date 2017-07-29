@@ -12,6 +12,7 @@ en:
         password_confirmation: 'Confirmation'
     placeholders:
       defaults:
+        name: 'Pick a username'
         email: 'Email'
         password: 'Password'
       micropost:

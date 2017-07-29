@@ -15,18 +15,18 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-          - altw-bundler-v1-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-          - altw-bundler-v1-{{ .Branch }}-
-          - altw-bundler-v1-
+            - altw-bundler-v1-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - altw-bundler-v1-{{ .Branch }}-
+            - altw-bundler-v1-
 
       - run:
           name: install bundler dependencies
           command: |
             bundle install --without development \
-                           --without production \
-                           --deployment \
-                           --jobs=4 \
-                           --retry=3
+                          --without production \
+                          --deployment \
+                          --jobs=4 \
+                          --retry=3
 
       - save_cache:
           key: altw-bundler-v1-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
@@ -35,22 +35,18 @@ jobs:
             - vendor/bundle
 
       - run:
-        name: Set up database
-        environment:
-          - RAILS_ENV: test
-        command: |
-          bundle exec rake db:create
-          bundle exec rake db:schema:load
+          name: Set up database
+          environment:
+            - RAILS_ENV: test
+          command: bundle exec rake db:create db:schema:load
 
       # run tests!
       - run:
-          name: run tests
+          name: run RSpec
           environment:
             - RAILS_ENV: test
             - RACK_ENV: test
           command: |
-            bundle exec rails test
-
             mkdir /tmp/test-results
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
 
@@ -59,6 +55,13 @@ jobs:
                             --out /tmp/test-results/rspec.xml \
                             --format progress \
                             "${TEST_FILES}"
+
+      - run:
+          name: run microtests
+          environment:
+            - RAILS_ENV: test
+            - RACK_ENV: test
+          command: bundle exec rails test
 
       # collect reports
       - store_test_results:

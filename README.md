@@ -1,7 +1,5 @@
 # demo-rails [![CircleCI][build-badge]][build]
 
-https://circleci.com/gh/AlexKVal/demo-rails.svg?&style=shield&circle-token=a24ac042fa40345f975edf6e6fea4fa5a078672c
-
 ### To run
 - `npm install -g mjml`
 - run `scripts/start.sh`

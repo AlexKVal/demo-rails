@@ -47,6 +47,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'spring-commands-rspec' # rspec command for Spring
   gem 'i18n-debug' # shows which translations are being looked up by Rails
+  gem 'guard' # A CLI tool to easily handle events on file system modifications
+  gem 'guard-rspec', require: false # automatically run your specs
 end
 
 group :development, :test do
@@ -67,6 +69,4 @@ group :test do
   # Minitest related
   gem 'rails-controller-testing' # Brings back `assigns` and `assert_template` to your Rails tests
   gem 'minitest-reporters' # Create customizable MiniTest output formats
-  gem 'guard' # A CLI tool to easily handle events on file system modifications
-  gem 'guard-minitest' # Guard::Minitest automatically run your tests (much like autotest)
 end

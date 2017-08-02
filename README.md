@@ -8,7 +8,7 @@
 ### For testing
 - run `rspec` to run specs
 - run `rails test` to run microtests
-- run `bundle exec guard` for TDD with microtests
+- run `bundle exec guard` for TDD
 
 To lint FactoryGirl factories run
 `bundle exec rake factory_girl:lint`

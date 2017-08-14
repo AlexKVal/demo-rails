@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "User logs in" do
+RSpec.feature "User logs in", js: true do
   scenario "with incorrect credentials" do
     login_with email: 'wrong@email.com', password: 'wrong-password'
 

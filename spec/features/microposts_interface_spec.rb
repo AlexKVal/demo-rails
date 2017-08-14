@@ -1,28 +1,22 @@
 require 'rails_helper'
 
-RSpec.feature "User logs in" do
-  given(:user) { create(:activated_user) }
+RSpec.feature "User logs in", js: true do
+  scenario "micropost - valid submission with ajax" do
+    user = create(:activated_user)
+    login_as(user)
+    expect(page).to have_text('(edit)')
 
-  # TODO: rewrite them into rspec correct syntax
-  # scenario "micropost - invalid submission with ajax" do
-  #   log_in_as(user)
-  #   # invalid submission
-  #   assert_no_difference 'Micropost.count' do
-  #     post microposts_path, params: { micropost: { content: "" } }, xhr: true
-  #   end
-  #   # assert_select '.micropost_content', class: 'has-error' # TODO make this possible with Capybara
-  #   assert_template 'microposts/create'
-  #   assert_equal "text/javascript", response.content_type
-  #   assert_match "can\'t be blank", CGI.unescape_html(response.body)
-  # end
+    submit_micropost_with(content: 'a content')
 
-  # scenario "micropost - valid submission with ajax" do
-  #   log_in_as(user)
-  #   assert_difference 'Micropost.count', +1 do
-  #     post microposts_path, params: { micropost: { content: 'a content' } }, xhr: true
-  #   end
-  #   assert_equal "text/javascript", response.content_type
-  #   assert_match 'Turbolinks.visit', response.body        # js redirect
-  #   assert_match 'http://www.example.com/', response.body # to root_path
-  # end
+    within('.microposts') do
+      assert_text('a content')
+    end
+  end
+
+  private
+
+  def submit_micropost_with(content:)
+    fill_in(name: 'micropost[content]', with: content)
+    click_on('Post')
+  end
 end

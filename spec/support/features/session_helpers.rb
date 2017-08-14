@@ -8,5 +8,9 @@ module Features
         click_button 'Log in'
       end
     end
+
+    def login_as(user)
+      login_with(email: user.email, password: user.password)
+    end
   end
 end

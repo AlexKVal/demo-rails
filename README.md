@@ -1,9 +1,24 @@
 # demo-rails [![CircleCI][build-badge]][build]
 
-### To run
-- `npm install -g mjml`
-- run `scripts/start.sh`
-- open in a browser http://lvh.me:5000
+### To install and run
+
+Ensure that you have installed:
+- ruby 2.4.1
+- bundler >= 1.15.1
+- node >= v8.2.1
+
+Then just
+```
+> git clone
+> cd demo-rails
+> make setup
+> make run
+```
+And open in a browser [http://lvh.me:5000](http://lvh.me:5000)
+
+#### To login as admin
+- email: `example@railstutorial.org`
+- password: `foobar`
 
 ### For testing
 - run `rspec` to run specs

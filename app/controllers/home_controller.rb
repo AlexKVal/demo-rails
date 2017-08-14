@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  expose :micropost, parent: :current_user
+
   def index
     if logged_in?
       @user       = current_user
@@ -6,9 +8,4 @@ class HomeController < ApplicationController
     end
     @user ||= User.new
   end
-
-  def micropost
-    @micropost_cached ||= logged_in? && current_user.microposts.build
-  end
-  helper_method :micropost
 end

@@ -1,19 +1,7 @@
 class MicropostsController < ApplicationController
   before_action :logged_in_user
 
-  def current_user_microposts
-    current_user.microposts
-  end
-
-  def micropost
-    @micropost_cache ||= \
-      if params[:id]
-        current_user_microposts.find_by(id: params[:id])
-      else
-        current_user_microposts.build(micropost_params)
-      end
-  end
-  helper_method :micropost
+  expose :micropost, parent: :current_user
 
   # POST /microposts
   def create
@@ -31,14 +19,12 @@ class MicropostsController < ApplicationController
   end
 
   # DELETE /microposts/1
-  # current user can delete only their posts
   def destroy
-    if micropost.nil?
-      redirect_to root_path
-    else
-      micropost.destroy
-      redirect_back fallback_location: root_path, success: "Micropost deleted"
-    end
+    micropost.destroy
+  rescue ActiveRecord::RecordNotFound # current user can delete only their posts
+    redirect_to root_path
+  else
+    redirect_back fallback_location: root_path, success: "Micropost deleted"
   end
 
   private

@@ -1,17 +1,29 @@
 class MicropostsController < ApplicationController
   before_action :logged_in_user
-  before_action :correct_user, only: [:destroy]
+
+  def current_user_microposts
+    current_user.microposts
+  end
+
+  def micropost
+    @micropost_cache ||= \
+      if params[:id]
+        current_user_microposts.find_by(id: params[:id])
+      else
+        current_user_microposts.build(micropost_params)
+      end
+  end
+  helper_method :micropost
 
   # POST /microposts
   def create
-    @micropost = current_user.microposts.build(micropost_params)
-    if @micropost.save
+    if micropost.save
       redirect_to root_path, success: t('.success')
     else
       respond_to do |format|
         format.js # create.js.erb
         format.html do
-          flash[:danger] = @micropost.errors.map{|k, v| "#{k} #{v}"}.join(', ')
+          flash[:danger] = micropost.errors.map{|k, v| "#{k} #{v}"}.join(', ')
           redirect_to root_path(page: params[:page])
         end
       end
@@ -19,19 +31,19 @@ class MicropostsController < ApplicationController
   end
 
   # DELETE /microposts/1
+  # current user can delete only their posts
   def destroy
-    @micropost.destroy
-    redirect_back fallback_location: root_path, success: "Micropost deleted"
+    if micropost.nil?
+      redirect_to root_path
+    else
+      micropost.destroy
+      redirect_back fallback_location: root_path, success: "Micropost deleted"
+    end
   end
 
   private
 
     def micropost_params
       params.require(:micropost).permit(:content, :picture)
-    end
-
-    def correct_user
-      @micropost = current_user.microposts.find_by(id: params[:id])
-      redirect_to root_path if @micropost.nil?
     end
 end

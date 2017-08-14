@@ -13,4 +13,11 @@ run:
 
 	rails s -p 5000
 
+tests:
+	@echo -> run Microtests
+	bundle exec rake test
+
+	@echo -> run RSpec
+	bundle exec rspec
+
 -include Makefile.local

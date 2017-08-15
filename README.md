@@ -17,7 +17,7 @@ Then just
 And open in a browser [http://lvh.me:5000](http://lvh.me:5000)
 
 #### To login as admin
-- email: `example@railstutorial.org`
+- email: `admin@example.org`
 - password: `foobar`
 
 ### For testing

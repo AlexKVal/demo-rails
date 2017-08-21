@@ -1,6 +1,9 @@
 en:
   titles:
     application: App
+    admin:
+      home:
+        index: Dashboard
     home:
       index: Home
     static_pages:

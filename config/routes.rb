@@ -27,4 +27,8 @@ Rails.application.routes.draw do
 
   resources :microposts,    only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
+
+  namespace :admin do
+    root to: "home#index"
+  end
 end

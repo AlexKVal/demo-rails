@@ -4,15 +4,16 @@
 
 (defonce users (r/atom {}))
 
-(reset! users [{:id 1 :name "AlexKVal" :email "alexkval@gmail.com"}
-               {:id 2 :name "John Dow" :email "example-1@railstutorial.org"}
-               {:id 3 :name "Ivanov-AA" :email "example-2@railstutorial.org"}])
+(reset! users [{:id 1 :name "AlexKVal" :email "alexkval@gmail.com" :microposts_count 30}
+               {:id 2 :name "John Dow" :email "example-1@railstutorial.org" :microposts_count 10}
+               {:id 3 :name "Ivanov-AA" :email "example-2@railstutorial.org" :microposts_count 11}])
 
 
 (defn user-item [user]
   [:li.list-group-item
-   [gravatar-img user]
-   [:text (:name user)]])
+   [gravatar-img (:email user) :size 50]
+   [:a {:href "#"} (:name user)]
+   [:span.label.label-info.microposts-count (:microposts_count user)]])
 
 (defn users-list []
   [:ul.list-group

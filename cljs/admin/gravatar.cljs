@@ -6,8 +6,6 @@
 (defn- email-hash [email]
   (md5 (str/lower-case (str email))))
 
-(defn- gravatar-url [email & {:keys [size] :or {size 80}}]
-  (str "https://secure.gravatar.com/avatar/" (email-hash email) "?s=" size))
-
-(defn gravatar-img [{:keys [email name]}]
-  [:img {:src (gravatar-url email) :alt name :class "gravatar"}])
+(defn gravatar-img [email & {:keys [size] :or {size 80}}]
+  (let [url (str "https://secure.gravatar.com/avatar/" (email-hash email) "?s=" size)]
+    [:img {:src url :alt email :class "gravatar"}]))

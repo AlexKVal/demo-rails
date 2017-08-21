@@ -20,6 +20,13 @@ And open in a browser [http://lvh.me:5000](http://lvh.me:5000)
 - email: `admin@example.org`
 - password: `foobar`
 
+### ClojureScript / Reagent part
+
+- install [leiningen](http://leiningen.org/#install)
+- `brew install rlwrap`
+- run `rlwrap lein figwheel`
+- click on 'Admin' link in the navbar
+
 ### For testing
 - run `rspec` to run specs
 - run `rails test` to run microtests

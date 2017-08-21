@@ -1,25 +1,18 @@
 (ns admin.core
-  (:require [reagent.core :as r]))
-
-(enable-console-print!)
-(println "Hello from admin.core ClojureScript")
+  (:require [reagent.core :as r]
+            [admin.gravatar :refer [gravatar-img]]))
 
 (defonce users (r/atom {}))
 
-(reset! users [{:id 1 :name "Admin" :email "admin@example.com"}
-               {:id 2 :name "John Dow" :email "john@me.com"}
-               {:id 3 :name "Ivanov-AA" :email "ivanov@gmail.com"}])
-
-(defn gravatar [{:keys [email]}]
-  [:div email])
+(reset! users [{:id 1 :name "AlexKVal" :email "alexkval@gmail.com"}
+               {:id 2 :name "John Dow" :email "example-1@railstutorial.org"}
+               {:id 3 :name "Ivanov-AA" :email "example-2@railstutorial.org"}])
 
 
 (defn user-item [user]
   [:li.list-group-item
-   [gravatar user]
+   [gravatar-img user]
    [:text (:name user)]])
-
-
 
 (defn users-list []
   [:ul.list-group

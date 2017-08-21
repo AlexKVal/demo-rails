@@ -1,0 +1,232 @@
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 1.91 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/goog/deps.js
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/cljs_deps.js
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 1.155 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 1.095 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/goog/deps.js
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/cljs_deps.js
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 0.892 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 1.224 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 0.967 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 0.964 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 1.013 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 2.015 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[36m----  Compiler Warning on   cljs/admin/core.cljs   line:26  column:16  ----[0m
+
+  [1mUse of undeclared Var admin.core/users[0m
+
+  [36m22[0m  [36m; </li>[0m
+  [36m23[0m  [36m[0m
+  [36m24[0m  [36m(defn app [][0m
+  [36m25[0m  [36m  [:ul.list-group[0m
+  [33m26[0m  [1m   (for [user @users][0m
+  [0m  [0m  [33m               ^--- Use of undeclared Var admin.core/users[0m
+  [36m27[0m  [36m     ^{:key (:id user)} [user-item user])])[0m
+  [36m28[0m  [36m[0m
+  [36m29[0m  [36m(when-let [element (.getElementById js/document "cljs-admin-app")][0m
+  [36m30[0m  [36m  (r/render-component [app] element))[0m
+
+[36m----  Compiler Warning : Please see cljs/admin/core.cljs  ----[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 1.404 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 0.851 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 1.022 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 1.219 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 0.86 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 1.026 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 1.39 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 0.977 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 0.883 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 1.175 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 0.915 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 0.866 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 0.978 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 0.804 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[31mFailed to compile "lib/assets/cljs/cljs-admin.js" in 0.051 seconds.[0m
+[36m----  Could not Analyze  cljs/admin/core.cljs   line:1  column:1  ----[0m
+
+  [1mOnly :as, :refer and :rename options supported in :require / :require-macros; offending spec: [reagent.core :as r cljs-hash.md5 :refer [md5] clojure.string :as str] at line 1 cljs/admin/core.cljs[0m
+
+  [33m1[0m  [1m(ns admin.core[0m
+  [0m [0m  [33m^--- Only :as, :refer and :rename options supported in :require / :require-macros; offending spec: [reagent.core :as r cljs-hash.md5 :refer [md5] clojure.string :as str] at line 1 cljs/admin/core.cljs[0m
+  [36m2[0m  [36m  (:require [reagent.core :as r[0m
+  [36m3[0m  [36m             cljs-hash.md5 :refer [md5][0m
+  [36m4[0m  [36m             clojure.string :as str]))[0m
+
+[36m----  Analysis Error : Please see cljs/admin/core.cljs  ----[0m
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[31mFailed to compile "lib/assets/cljs/cljs-admin.js" in 0.662 seconds.[0m
+[36m----  Could not Analyze  cljs/admin/core.cljs  ----[0m
+
+  [1mNo such namespace: cljs-hash.md5, could not locate cljs_hash/md5.cljs, cljs_hash/md5.cljc, or JavaScript source providing "cljs-hash.md5" [0m
+
+[36m----  Analysis Error : Please see cljs/admin/core.cljs  ----[0m
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 0.987 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/goog/deps.js
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/cljs_deps.js
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 1.132 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 1.48 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 1.23 seconds.[0m
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 1.039 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/cljs_deps.js
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/gravatar.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 1.456 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/cljs_deps.js
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 1.285 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 1.475 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 0.83 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 0.874 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 1.06 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 1.404 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 0.724 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 0.848 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/gravatar.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 0.65 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/gravatar.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 0.863 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 1.681 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/gravatar.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 1.275 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 0.89 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/gravatar.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 0.607 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 1.112 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 0.605 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[36m----  Compiler Warning on   cljs/admin/gravatar.cljs   line:11  column:15  ----[0m
+
+  [1mUse of undeclared Var admin.gravatar/url[0m
+
+  [36m 7[0m  [36m  (md5 (str/lower-case (str email))))[0m
+  [36m 8[0m  [36m[0m
+  [36m 9[0m  [36m(defn gravatar-img [email & {:keys [size] :or {size 80}}][0m
+  [36m10[0m  [36m  (let [url (str "https://secure.gravatar.com/avatar/" (email-hash email) "?s=" size)])[0m
+  [33m11[0m  [1m  [:img {:src url :class "gravatar"}])[0m
+  [0m  [0m  [33m              ^--- Use of undeclared Var admin.gravatar/url[0m
+
+[36m----  Compiler Warning : Please see cljs/admin/gravatar.cljs  ----[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 0.989 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/gravatar.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 0.72 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/gravatar.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 0.693 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/gravatar.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 1.128 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 0.679 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 0.631 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 1.102 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 0.732 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/core.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[31mFailed to compile "lib/assets/cljs/cljs-admin.js" in 0.701 seconds.[0m
+[36m----  Could not Analyze  cljs/admin/gravatar.cljs  ----[0m
+
+  [1mNo such namespace: cljs-gravatar.core, could not locate cljs_gravatar/core.cljs, cljs_gravatar/core.cljc, or JavaScript source providing "cljs-gravatar.core" [0m
+
+[36m----  Analysis Error : Please see cljs/admin/gravatar.cljs  ----[0m
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 1.107 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/goog/deps.js
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/cljs_deps.js
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/gravatar.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 1.713 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/gravatar.js
+[0mCompiling "lib/assets/cljs/cljs-admin.js" from ["cljs"]...[0m
+[32mSuccessfully compiled "lib/assets/cljs/cljs-admin.js" in 1.692 seconds.[0m
+notifying browser that file changed:  lib/assets/cljs/cljs-admin.out/admin/gravatar.js

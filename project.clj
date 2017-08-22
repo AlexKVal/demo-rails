@@ -1,7 +1,7 @@
 (defproject hb "0.1.0-SNAPSHOT"
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.9.908"]
-                 [cljs-hash "0.0.2"]
+                 [cljs-gravatar "0.1.2"]
                  [reagent "0.7.0"]
                  [proto-repl "0.3.1"]
                  [re-frisk "0.3.2"]

@@ -1,29 +1,16 @@
 (ns admin.core
   (:require [reagent.core :as r]
-            [admin.gravatar :refer [gravatar-img]]))
+            [users.app]))
 
-(defonce users (r/atom {}))
+(def app-root
+  (.getElementById js/document "cljs-app"))
 
-(reset! users [{:id 1 :name "AlexKVal" :email "alexkval@gmail.com" :microposts_count 30}
-               {:id 2 :name "John Dow" :email "example-1@railstutorial.org" :microposts_count 10}
-               {:id 3 :name "Ivanov-AA" :email "example-2@railstutorial.org" :microposts_count 11}])
+(def view
+  (.getAttribute app-root "data-view"))
 
+(def app
+  (case view
+    "users" users.app/app))
 
-(defn user-item [user]
-  [:li.list-group-item
-   [gravatar-img (:email user) :size 50]
-   [:a {:href "#"} (:name user)]
-   [:span.label.label-info.microposts-count (:microposts_count user)]])
-
-(defn users-list []
-  [:ul.list-group
-   (for [user @users]
-     ^{:key (:id user)} [user-item user])])
-
-(defn app []
-  [:div.row
-   [:div.col-sm-6
-    [users-list]]])
-
-(when-let [element (.getElementById js/document "cljs-admin-app")]
-  (r/render-component [app] element))
+(when [app-root]
+  (r/render-component [app] app-root))

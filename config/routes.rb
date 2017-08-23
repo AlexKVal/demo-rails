@@ -30,5 +30,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: "home#index"
+    resources :users, only: [:index]
+    get 'feed', to: 'feed#index'
   end
 end

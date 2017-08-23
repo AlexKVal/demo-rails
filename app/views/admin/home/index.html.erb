@@ -1,5 +1,2 @@
-<div id="cljs-app" data-view="users" data-init="<%= @init %>">
-  <p>ClojureScript app is loading...</p>
-</div>
-
-<%= javascript_include_tag 'cljs-admin' %>
+<%= link_to "Users", admin_users_path, class: "btn btn-primary", data: {turbolinks: false} %>
+<%= link_to "Feed", admin_feed_path, class: "btn btn-warning", data: {turbolinks: false} %>

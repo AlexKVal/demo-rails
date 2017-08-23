@@ -1,0 +1,6 @@
+json.(micropost, :id, :content)
+json.posted_time_ago posted_time_ago(micropost.created_at)
+json.user do
+  json.name micropost.user.name
+  json.email micropost.user.email
+end

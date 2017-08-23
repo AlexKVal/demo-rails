@@ -24,7 +24,7 @@ And open in a browser [http://lvh.me:5000](http://lvh.me:5000)
 
 - install [leiningen](http://leiningen.org/#install)
 - `brew install rlwrap`
-- run `rlwrap lein figwheel`
+- run `rlwrap lein figwheel cljs-users cljs-feed`
 - click on 'Admin' link in the navbar
 
 ### For testing

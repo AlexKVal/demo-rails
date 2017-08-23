@@ -2,8 +2,8 @@
   <p>ClojureScript app is loading...</p>
 </div>
 
-<script id="cljs-init-data" type="text/javascript">
-
+<script id="cljs-init-data" type="application/transit">
+  <%=raw @init %>
 </script>
 
 <%= javascript_include_tag 'cljs-feed' %>

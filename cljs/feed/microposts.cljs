@@ -1,6 +1,6 @@
-(ns feed.app
-  (:require [feed.state :as state]
-            [admin.gravatar :refer [gravatar-img]]))
+(ns feed.microposts
+  (:require [common.gravatar :refer [gravatar-img]]
+            [feed.state :refer [state]]))
 
 (defn micropost-item [micropost]
   (let [id          (:id micropost)
@@ -18,13 +18,14 @@
      [:div.timestamp.small
       [:text (:posted-time-ago micropost)]]]))
 
+(defn microposts [] (:microposts @state))
+
 (defn microposts-list []
   [:ul.list-group.microposts
-   (for [micropost (state/microposts)]
+   (for [micropost (microposts)]
      ^{:key (:id micropost)} [micropost-item micropost])])
 
-(defn app [init-data]
-  (state/set-data init-data)
-  [:div.row
+(defn microposts-feed []
+  [:div#microposts-feed.row
    [:div.col-sm-6
     [microposts-list]]])

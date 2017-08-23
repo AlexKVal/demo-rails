@@ -1,4 +1,4 @@
-(ns admin.gravatar
+(ns common.gravatar
   (:require [reagent.core :as r]
             [cljs-gravatar.core :as gravatar]))
 

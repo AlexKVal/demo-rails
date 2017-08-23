@@ -1,6 +1,6 @@
 (ns users.app
   (:require [users.state :as state]
-            [admin.gravatar :refer [gravatar-img]]))
+            [common.gravatar :refer [gravatar-img]]))
 
 (defn user-item [user]
   [:li.list-group-item

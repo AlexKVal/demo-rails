@@ -1,3 +1,24 @@
+(def cljs-users
+  {:source-paths ["cljs"]
+   :figwheel true
+   :compiler {:main "users.core"
+              :asset-path "/assets/cljs-users.out"
+              :output-dir "lib/assets/cljs/cljs-users.out"
+              :output-to  "lib/assets/cljs/cljs-users.js"
+              :source-map-timestamp true
+              :preloads ['devtools.preload]}})
+
+(def cljs-feed
+  {:source-paths ["cljs"]
+   :figwheel true
+   :compiler {:main "feed.core"
+              :asset-path "/assets/cljs-feed.out"
+              :output-dir "lib/assets/cljs/cljs-feed.out"
+              :output-to  "lib/assets/cljs/cljs-feed.js"
+              :source-map-timestamp true
+              :preloads ['devtools.preload]}})
+
+
 (defproject hb "0.1.0-SNAPSHOT"
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.9.908"]
@@ -14,12 +35,5 @@
   :clean-targets ^{:protect false} ["lib/assets/cljs/"]
 
   :cljsbuild {:builds
-              {:admin
-               {:source-paths ["cljs"]
-                :figwheel true
-                :compiler {:main admin.core
-                           :asset-path "/assets/cljs-admin.out"
-                           :output-dir "lib/assets/cljs/cljs-admin.out"
-                           :output-to  "lib/assets/cljs/cljs-admin.js"
-                           :source-map-timestamp true
-                           :preloads [devtools.preload]}}}})
+              {:cljs-users ~cljs-users
+               :cljs-feed  ~cljs-feed}})

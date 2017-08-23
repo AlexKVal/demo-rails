@@ -1,11 +1,9 @@
 module Admin
   class UsersController < ApplicationController
-    layout 'cljs'
 
-    expose(:users) { User.ordered_by_id }
+    expose(:users) { User.ordered_by_id.first(7) }
 
     def index
-      @users = User.ordered_by_id
       respond_to do |format|
         format.html {
           @init = render_to_string transit: init_data

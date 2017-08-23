@@ -27,4 +27,10 @@ Rails.application.routes.draw do
 
   resources :microposts,    only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
+
+  namespace :admin do
+    root to: "home#index"
+    resources :users, only: [:index]
+    get 'feed', to: 'feed#index'
+  end
 end

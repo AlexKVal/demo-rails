@@ -12,6 +12,7 @@ en:
   toggle_navigation: Toggle navigation
   home: Home
   help: Help
+  admin: ClojureScript
   nav_users: Users
   account: Account
   profile: Profile

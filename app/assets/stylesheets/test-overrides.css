@@ -1,0 +1,4 @@
+* {
+  transition-property: none !important;
+  -webkit-transition-property: none !important;
+}

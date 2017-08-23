@@ -26,6 +26,7 @@ gem 'pg', '0.18.4' # use postgres in all three environments
 gem 'faker', '1.6.6' # I want it in a production too
 gem 'title', '0.0.7' # Abuses I18n to set HTML <title>s
 gem 'decent_exposure', '3.0.2' # A helper for creating declarative interfaces in controllers
+gem 'transit-rails', '~> 0.8' # Use transit format in your Rails application
 
 ####################################################################################
 # Third party services

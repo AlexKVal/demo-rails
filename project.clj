@@ -26,7 +26,7 @@
                  [cljs-gravatar "0.1.2"]
                  [reagent "0.7.0"]
                  [proto-repl "0.3.1"]
-                 [re-frisk "0.3.2"]
+                 [re-frisk "0.4.5"]
                  [binaryage/devtools "0.9.1"]]
 
   :plugins [[lein-figwheel "0.5.13"]

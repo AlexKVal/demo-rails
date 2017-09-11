@@ -27,6 +27,10 @@ And open in a browser [http://lvh.me:5000](http://lvh.me:5000)
 - run `rlwrap lein figwheel cljs-users cljs-feed`
 - click on 'Admin' link in the navbar
 
+#### Todo
+
+- [ ] make data pre-loading for ClojureScript part
+
 ### For testing
 - run `rspec` to run specs
 - run `rails test` to run microtests

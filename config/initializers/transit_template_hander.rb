@@ -1,3 +1,6 @@
+##########################################
+# Copyright https://github.com/nashbridges
+##########################################
 class TransitTemplate < JbuilderTemplate
   # Override format and handler. Can't pass those things to JbuilderTemplate.
   def partial!(*args)
